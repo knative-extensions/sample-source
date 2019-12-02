@@ -23,6 +23,7 @@ import (
 	corev1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"knative.dev/eventing/pkg/utils"
+	"knative.dev/pkg/apis"
 	"knative.dev/pkg/kmeta"
 
 	"knative.dev/sample-source/pkg/apis/samples/v1alpha1"
@@ -35,12 +36,16 @@ type ReceiveAdapterArgs struct {
 	Image       string
 	Source      *v1alpha1.SampleSource
 	Labels      map[string]string
-	SinkURI     string
+	SinkURI     *apis.URL
 }
 
 // MakeReceiveAdapter generates (but does not insert into K8s) the Receive Adapter Deployment for
 // Sample sources.
 func MakeReceiveAdapter(args *ReceiveAdapterArgs) *v1.Deployment {
+	_, err := apis.ParseURL(args.SinkURI.String())
+	if err != nil {
+		panic("should NEVER happen")
+	}
 	replicas := int32(1)
 	return &v1.Deployment{
 		ObjectMeta: metav1.ObjectMeta{
@@ -66,7 +71,7 @@ func MakeReceiveAdapter(args *ReceiveAdapterArgs) *v1.Deployment {
 						{
 							Name:  "receive-adapter",
 							Image: args.Image,
-							Env:   makeEnv(args.EventSource, args.SinkURI, &args.Source.Spec),
+							Env:   makeEnv(args.EventSource, args.SinkURI.String(), &args.Source.Spec),
 						},
 					},
 				},

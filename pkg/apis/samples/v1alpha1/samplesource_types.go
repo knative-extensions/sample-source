@@ -95,7 +95,7 @@ type SampleSourceStatus struct {
 	// SinkURI is the current active sink URI that has been configured
 	// for the SampleSource.
 	// +optional
-	SinkURI string `json:"sinkUri,omitempty"`
+	SinkURI *apis.URL `json:"sinkUri,omitempty"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object

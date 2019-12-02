@@ -37,6 +37,7 @@ import (
 	eventinglisters "knative.dev/eventing/pkg/client/listers/eventing/v1alpha1"
 	"knative.dev/eventing/pkg/logging"
 	"knative.dev/eventing/pkg/reconciler"
+	"knative.dev/pkg/apis"
 	"knative.dev/pkg/resolver"
 
 	"knative.dev/sample-source/pkg/apis/samples/v1alpha1"
@@ -142,24 +143,12 @@ func (r *Reconciler) reconcile(ctx context.Context, source *v1alpha1.SampleSourc
 			//TODO how does this work with deprecated fields
 			dest.Ref.Namespace = source.GetNamespace()
 		}
-	} else if dest.DeprecatedName != "" && dest.DeprecatedNamespace == "" {
-		// If Ref is nil and the deprecated ref is present, we need to check for
-		// DeprecatedNamespace. This can be removed when DeprecatedNamespace is
-		// removed.
-		dest.DeprecatedNamespace = source.GetNamespace()
 	}
 
-	sinkURI, err := r.sinkResolver.URIFromDestination(*dest, source)
+	sinkURI, err := r.sinkResolver.URIFromDestinationV1(*dest, source)
 	if err != nil {
 		source.Status.MarkNoSink("NotFound", "")
 		return err
-	}
-	if source.Spec.Sink.DeprecatedAPIVersion != "" &&
-		source.Spec.Sink.DeprecatedKind != "" &&
-		source.Spec.Sink.DeprecatedName != "" {
-		source.Status.MarkSinkWarnRefDeprecated(sinkURI)
-	} else {
-		source.Status.MarkSink(sinkURI)
 	}
 	source.Status.MarkSink(sinkURI)
 
@@ -181,7 +170,7 @@ func (r *Reconciler) reconcile(ctx context.Context, source *v1alpha1.SampleSourc
 	return nil
 }
 
-func (r *Reconciler) createReceiveAdapter(ctx context.Context, src *v1alpha1.SampleSource, sinkURI string) (*appsv1.Deployment, error) {
+func (r *Reconciler) createReceiveAdapter(ctx context.Context, src *v1alpha1.SampleSource, sinkURI *apis.URL) (*appsv1.Deployment, error) {
 	eventSource := r.makeEventSource(src)
 	logging.FromContext(ctx).Debug("event source", zap.Any("source", eventSource))
 

@@ -55,9 +55,9 @@ func (s *SampleSourceStatus) InitializeConditions() {
 }
 
 // MarkSinkWarnDeprecated sets the condition that the source has a sink configured and warns ref is deprecated.
-func (s *SampleSourceStatus) MarkSinkWarnRefDeprecated(uri string) {
+func (s *SampleSourceStatus) MarkSinkWarnRefDeprecated(uri *apis.URL) {
 	s.SinkURI = uri
-	if len(uri) > 0 {
+	if len(uri.String()) > 0 {
 		c := apis.Condition{
 			Type:     SampleConditionSinkProvided,
 			Status:   corev1.ConditionTrue,
@@ -71,9 +71,9 @@ func (s *SampleSourceStatus) MarkSinkWarnRefDeprecated(uri string) {
 }
 
 // MarkSink sets the condition that the source has a sink configured.
-func (s *SampleSourceStatus) MarkSink(uri string) {
+func (s *SampleSourceStatus) MarkSink(uri *apis.URL) {
 	s.SinkURI = uri
-	if len(uri) > 0 {
+	if len(uri.String()) > 0 {
 		SampleCondSet.Manage(s).MarkTrue(SampleConditionSinkProvided)
 	} else {
 		SampleCondSet.Manage(s).MarkUnknown(SampleConditionSinkProvided, "SinkEmpty", "Sink has resolved to empty.%s", "")
