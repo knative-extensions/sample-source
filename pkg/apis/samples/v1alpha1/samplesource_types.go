@@ -23,7 +23,6 @@ import (
 	"knative.dev/pkg/apis"
 	"knative.dev/pkg/apis/duck"
 	duckv1 "knative.dev/pkg/apis/duck/v1"
-	duckv1beta1 "knative.dev/pkg/apis/duck/v1beta1"
 	"knative.dev/pkg/kmeta"
 )
 
@@ -80,7 +79,7 @@ type SampleSourceSpec struct {
 
 	// Sink is a reference to an object that will resolve to a host
 	// name to use as the sink.
-	Sink *duckv1beta1.Destination `json:"sink"`
+	Sink *duckv1.Destination `json:"sink"`
 }
 
 const (
