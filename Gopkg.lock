@@ -202,7 +202,6 @@
   ]
   pruneopts = "NUT"
   revision = "6f77996f0c42f7b84e5a2b252227263f93432e9b"
-  version = "v0.3.0"
 
 [[projects]]
   digest = "1:52c5834e2bebac9030c97cc0798ac11c3aa8a39f098aeb419f142533da6cd3cc"
@@ -1231,7 +1230,7 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:c2a4335822f3689f4322e6b814a280932b3064079e9792ff3da51987313602de"
+  digest = "1:bcb478b77fb59d3544df5006027f725d7c081cf4b47bf064d70cb7e5baf3b934"
   name = "knative.dev/pkg"
   packages = [
     "apis",
@@ -1240,6 +1239,7 @@
     "apis/duck/v1alpha1",
     "apis/duck/v1beta1",
     "changeset",
+    "client/injection/ducks/duck/v1/addressable",
     "client/injection/kube/client",
     "client/injection/kube/informers/apps/v1/deployment",
     "client/injection/kube/informers/factory",
@@ -1271,7 +1271,7 @@
     "webhook/certificates/resources",
   ]
   pruneopts = "T"
-  revision = "2ec0f8da50578dcc3d830571d0de24de834579c8"
+  revision = "891c2876dd3de4c88a1126e49c2ad920eedf0212"
 
 [[projects]]
   branch = "master"
@@ -1344,7 +1344,6 @@
     "knative.dev/pkg/apis",
     "knative.dev/pkg/apis/duck",
     "knative.dev/pkg/apis/duck/v1",
-    "knative.dev/pkg/apis/duck/v1beta1",
     "knative.dev/pkg/client/injection/kube/informers/apps/v1/deployment",
     "knative.dev/pkg/codegen/cmd/injection-gen",
     "knative.dev/pkg/configmap",
