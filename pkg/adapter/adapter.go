@@ -53,7 +53,7 @@ type dataExample struct {
 	Heartbeat string
 }
 
-var sourceURI = types.URIRef{URL: url.URL{Scheme: "http", Host: "heartbeat.example.com", Path: "/heartbeat-source"}}
+var sourceURI = types.URIRef{URL: url.URL{Scheme: "http", Host: "sample.knative.dev", Path: "/heartbeat-source"}}
 
 func strptr(s string) *string { return &s }
 
@@ -62,7 +62,7 @@ func (a *Adapter) newEvent() cloudevents.Event {
 	e := cloudevents.Event{
 		Context: cloudevents.EventContextV1{
 			ID:              uuid.New().String(),
-			Type:            "com.example.heartbeat",
+			Type:            "dev.knative.sample",
 			Source:          sourceURI,
 			Time:            &types.Timestamp{Time: time.Now()},
 			DataContentType: strptr("application/json"),

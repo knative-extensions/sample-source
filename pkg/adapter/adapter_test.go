@@ -53,7 +53,7 @@ func verify(t *testing.T, received chan ce.Event) {
 	for _, id := range []string{"0", "1", "2"} {
 		e := <-received
 		assert.Equal(t, id, e.ID())
-		assert.Equal(t, "com.example.heartbeat", e.Type())
+		assert.Equal(t, "dev.knative.sample", e.Type())
 		m := map[string]string{}
 		assert.NoError(t, e.DataAs(&m))
 		assert.Equal(t, map[string]string{"heartbeat": "1ms"}, m)
