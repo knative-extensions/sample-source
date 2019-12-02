@@ -50,13 +50,14 @@ func TestAdapter(t *testing.T) {
 }
 
 func verify(t *testing.T, received chan ce.Event) {
-	for _, id := range []string{"0", "1", "2"} {
+	for _, id := range []int{0, 1, 2} {
 		e := <-received
-		assert.Equal(t, id, e.ID())
 		assert.Equal(t, "dev.knative.sample", e.Type())
-		m := map[string]string{}
+		//m := map[string]json.RawMessage{}
+		m := &dataExample{}
 		assert.NoError(t, e.DataAs(&m))
-		assert.Equal(t, map[string]string{"heartbeat": "1ms"}, m)
+		n := &dataExample{Sequence: id, Heartbeat: "1ms"}
+		assert.Equal(t, n, m)
 	}
 }
 
