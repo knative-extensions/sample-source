@@ -66,7 +66,7 @@ func (a *Adapter) newEvent() cloudevents.Event {
 			Source:          sourceURI,
 			Time:            &types.Timestamp{Time: time.Now()},
 			DataContentType: strptr("application/json"),
-		}.AsV01(),
+		}.AsV1(),
 		Data: &dataExample{
 			Sequence:  a.nextID,
 			Heartbeat: a.interval.String(),
