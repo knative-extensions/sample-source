@@ -106,6 +106,14 @@
   version = "v1.0.1"
 
 [[projects]]
+  digest = "1:45c41cd27a8d986998680bfc86da0bbff5fa4f90d0f446c00636c8b099028ffe"
+  name = "github.com/blang/semver"
+  packages = ["."]
+  pruneopts = "NUT"
+  revision = "ba2c2ddd89069b46a7011d4106f6868f17ee1705"
+  version = "v3.6.1"
+
+[[projects]]
   digest = "1:8f5acd4d4462b5136af644d25101f0968a7a94ee90fcb2059cec5b7cc42e0b20"
   name = "github.com/census-instrumentation/opencensus-proto"
   packages = [
@@ -437,14 +445,6 @@
   pruneopts = "NUT"
   revision = "45fbe1491cdd47d74d1bf1396286d67faee8b8b5"
   version = "v3.0.0"
-
-[[projects]]
-  digest = "1:7008ec21a0ce773bd21deefdb7d17fab8cb9f1ae0bc44026cdd2b658ab1582ca"
-  name = "github.com/rogpeppe/go-internal"
-  packages = ["semver"]
-  pruneopts = "NUT"
-  revision = "d89504fbbf2c313df24867a5ffafcc9b847961ff"
-  version = "v1.5.0"
 
 [[projects]]
   digest = "1:d917313f309bda80d27274d53985bc65651f81a5b66b820749ac7f8ef061fd04"
@@ -1267,7 +1267,7 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:342e150dd5c3ce921be78ce3e8cbfb03aaf01b07a26258f39dc9e90caf277a2b"
+  digest = "1:20b071cabc111e7f871d3db6147314a69be070bed9fa202b2f651bd7454c4229"
   name = "knative.dev/pkg"
   packages = [
     "apis",
@@ -1296,6 +1296,7 @@
     "metrics/metricskey",
     "network",
     "profiling",
+    "reconciler",
     "resolver",
     "signals",
     "source",
@@ -1308,7 +1309,7 @@
     "webhook/certificates/resources",
   ]
   pruneopts = "T"
-  revision = "96d3b8c24c34ea7a8d9da9e7dbb65610aa9ac7b0"
+  revision = "b317048346903839a1eb4a71886c743541e49c00"
 
 [[projects]]
   branch = "master"
@@ -1356,11 +1357,14 @@
     "k8s.io/apimachinery/pkg/watch",
     "k8s.io/client-go/discovery",
     "k8s.io/client-go/discovery/fake",
+    "k8s.io/client-go/kubernetes/scheme",
     "k8s.io/client-go/listers/apps/v1",
     "k8s.io/client-go/rest",
     "k8s.io/client-go/testing",
     "k8s.io/client-go/tools/cache",
+    "k8s.io/client-go/tools/record",
     "k8s.io/client-go/util/flowcontrol",
+    "k8s.io/client-go/util/retry",
     "k8s.io/code-generator/cmd/client-gen",
     "k8s.io/code-generator/cmd/deepcopy-gen",
     "k8s.io/code-generator/cmd/defaulter-gen",
@@ -1387,6 +1391,7 @@
     "knative.dev/pkg/injection/sharedmain",
     "knative.dev/pkg/kmeta",
     "knative.dev/pkg/logging",
+    "knative.dev/pkg/reconciler",
     "knative.dev/pkg/resolver",
     "knative.dev/pkg/source",
     "knative.dev/test-infra/scripts",
