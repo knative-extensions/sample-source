@@ -1260,7 +1260,7 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:20b071cabc111e7f871d3db6147314a69be070bed9fa202b2f651bd7454c4229"
+  digest = "1:3e85a1ba2f762dd2ff12b7ec5ccc0a67600a75909504695d137ad1f21d6b6171"
   name = "knative.dev/pkg"
   packages = [
     "apis",
@@ -1302,7 +1302,7 @@
     "webhook/certificates/resources",
   ]
   pruneopts = "T"
-  revision = "b317048346903839a1eb4a71886c743541e49c00"
+  revision = "b63641488ab8d3a70e24a44e465495c7bfbf77b2"
 
 [[projects]]
   branch = "master"
