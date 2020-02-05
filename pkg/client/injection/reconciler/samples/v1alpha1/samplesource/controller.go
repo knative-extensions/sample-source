@@ -22,11 +22,14 @@ import (
 	"context"
 
 	v1 "k8s.io/api/core/v1"
-	"k8s.io/client-go/kubernetes/scheme"
+	"k8s.io/apimachinery/pkg/watch"
+	kubernetesscheme "k8s.io/client-go/kubernetes/scheme"
+	typedcorev1 "k8s.io/client-go/kubernetes/typed/core/v1"
 	"k8s.io/client-go/tools/record"
+	kubeclient "knative.dev/pkg/client/injection/kube/client"
 	controller "knative.dev/pkg/controller"
 	logging "knative.dev/pkg/logging"
-	samplesScheme "knative.dev/sample-source/pkg/client/clientset/versioned/scheme"
+	scheme "knative.dev/sample-source/pkg/client/clientset/versioned/scheme"
 	client "knative.dev/sample-source/pkg/client/injection/client"
 	samplesource "knative.dev/sample-source/pkg/client/injection/informers/samples/v1alpha1/samplesource"
 )
@@ -41,11 +44,30 @@ func NewImpl(ctx context.Context, r Interface) *controller.Impl {
 
 	samplesourceInformer := samplesource.Get(ctx)
 
+	recorder := controller.GetEventRecorder(ctx)
+	if recorder == nil {
+		// Create event broadcaster
+		logger.Debug("Creating event broadcaster")
+		eventBroadcaster := record.NewBroadcaster()
+		watches := []watch.Interface{
+			eventBroadcaster.StartLogging(logger.Named("event-broadcaster").Infof),
+			eventBroadcaster.StartRecordingToSink(
+				&typedcorev1.EventSinkImpl{Interface: kubeclient.Get(ctx).CoreV1().Events("")}),
+		}
+		recorder = eventBroadcaster.NewRecorder(
+			kubernetesscheme.Scheme, v1.EventSource{Component: defaultControllerAgentName})
+		go func() {
+			<-ctx.Done()
+			for _, w := range watches {
+				w.Stop()
+			}
+		}()
+	}
+
 	c := &reconcilerImpl{
-		Client: client.Get(ctx),
-		Lister: samplesourceInformer.Lister(),
-		Recorder: record.NewBroadcaster().NewRecorder(
-			scheme.Scheme, v1.EventSource{Component: defaultControllerAgentName}),
+		Client:        client.Get(ctx),
+		Lister:        samplesourceInformer.Lister(),
+		Recorder:      recorder,
 		FinalizerName: defaultFinalizerName,
 		reconciler:    r,
 	}
@@ -55,5 +77,5 @@ func NewImpl(ctx context.Context, r Interface) *controller.Impl {
 }
 
 func init() {
-	samplesScheme.AddToScheme(scheme.Scheme)
+	scheme.AddToScheme(kubernetesscheme.Scheme)
 }

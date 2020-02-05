@@ -898,16 +898,11 @@
   version = "kubernetes-1.16.4"
 
 [[projects]]
-  digest = "1:7febd5a0e29d26b0732a8f65d8034d9ff88b44dc05ca0de69af775649c31aeaa"
+  digest = "1:636417ff03ed51f0045e4a65b563a3cc338db010e910e33617872a70bc5a4983"
   name = "k8s.io/apiextensions-apiserver"
   packages = [
     "pkg/apis/apiextensions",
-    "pkg/apis/apiextensions/v1",
     "pkg/apis/apiextensions/v1beta1",
-    "pkg/client/clientset/clientset",
-    "pkg/client/clientset/clientset/scheme",
-    "pkg/client/clientset/clientset/typed/apiextensions/v1",
-    "pkg/client/clientset/clientset/typed/apiextensions/v1beta1",
   ]
   pruneopts = "NUT"
   revision = "bbf2aa1c9d0f69788f9cbd29ad5520574f91133c"
@@ -1210,7 +1205,7 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:2459d6f308e675df71a7a6ba2330293d81bf3430a2172e4cca0b44e2d25611c1"
+  digest = "1:a7534dcc1069c88de9303f9cc27baf29beb6af70edf91e229452c974679a97ef"
   name = "knative.dev/eventing"
   packages = [
     "pkg/adapter",
@@ -1249,8 +1244,6 @@
     "pkg/client/listers/sources/v1alpha1",
     "pkg/configmap",
     "pkg/kncloudevents",
-    "pkg/logging",
-    "pkg/reconciler",
     "pkg/tracing",
     "pkg/utils",
   ]
@@ -1357,6 +1350,7 @@
     "k8s.io/apimachinery/pkg/watch",
     "k8s.io/client-go/discovery",
     "k8s.io/client-go/discovery/fake",
+    "k8s.io/client-go/kubernetes",
     "k8s.io/client-go/kubernetes/scheme",
     "k8s.io/client-go/listers/apps/v1",
     "k8s.io/client-go/rest",
@@ -1375,14 +1369,15 @@
     "knative.dev/eventing/pkg/apis/duck",
     "knative.dev/eventing/pkg/apis/eventing/v1alpha1",
     "knative.dev/eventing/pkg/apis/sources/v1alpha1",
+    "knative.dev/eventing/pkg/client/clientset/versioned",
+    "knative.dev/eventing/pkg/client/injection/client",
     "knative.dev/eventing/pkg/client/injection/informers/eventing/v1alpha1/eventtype",
     "knative.dev/eventing/pkg/client/listers/eventing/v1alpha1",
-    "knative.dev/eventing/pkg/logging",
-    "knative.dev/eventing/pkg/reconciler",
     "knative.dev/eventing/pkg/utils",
     "knative.dev/pkg/apis",
     "knative.dev/pkg/apis/duck",
     "knative.dev/pkg/apis/duck/v1",
+    "knative.dev/pkg/client/injection/kube/client",
     "knative.dev/pkg/client/injection/kube/informers/apps/v1/deployment",
     "knative.dev/pkg/codegen/cmd/injection-gen",
     "knative.dev/pkg/configmap",

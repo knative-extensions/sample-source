@@ -147,12 +147,13 @@ func (r *reconcilerImpl) Reconcile(ctx context.Context, key string) error {
 		var event *reconciler.ReconcilerEvent
 		if reconciler.EventAs(reconcileEvent, &event) {
 			r.Recorder.Eventf(resource, event.EventType, event.Reason, event.Format, event.Args...)
-			reconcileEvent = nil
+			return nil
 		} else {
 			r.Recorder.Event(resource, v1.EventTypeWarning, "InternalError", reconcileEvent.Error())
+			return reconcileEvent
 		}
 	}
-	return reconcileEvent
+	return nil
 }
 
 func (r *reconcilerImpl) updateStatus(existing *v1alpha1.SampleSource, desired *v1alpha1.SampleSource) error {
