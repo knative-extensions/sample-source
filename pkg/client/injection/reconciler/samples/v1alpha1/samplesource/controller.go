@@ -21,16 +21,16 @@ package samplesource
 import (
 	"context"
 
-	v1 "k8s.io/api/core/v1"
-	"k8s.io/apimachinery/pkg/watch"
-	kubernetesscheme "k8s.io/client-go/kubernetes/scheme"
-	typedcorev1 "k8s.io/client-go/kubernetes/typed/core/v1"
-	"k8s.io/client-go/tools/record"
-	kubeclient "knative.dev/pkg/client/injection/kube/client"
+	corev1 "k8s.io/api/core/v1"
+	watch "k8s.io/apimachinery/pkg/watch"
+	scheme "k8s.io/client-go/kubernetes/scheme"
+	v1 "k8s.io/client-go/kubernetes/typed/core/v1"
+	record "k8s.io/client-go/tools/record"
+	client "knative.dev/pkg/client/injection/kube/client"
 	controller "knative.dev/pkg/controller"
 	logging "knative.dev/pkg/logging"
-	scheme "knative.dev/sample-source/pkg/client/clientset/versioned/scheme"
-	client "knative.dev/sample-source/pkg/client/injection/client"
+	versionedscheme "knative.dev/sample-source/pkg/client/clientset/versioned/scheme"
+	injectionclient "knative.dev/sample-source/pkg/client/injection/client"
 	samplesource "knative.dev/sample-source/pkg/client/injection/informers/samples/v1alpha1/samplesource"
 )
 
@@ -52,10 +52,9 @@ func NewImpl(ctx context.Context, r Interface) *controller.Impl {
 		watches := []watch.Interface{
 			eventBroadcaster.StartLogging(logger.Named("event-broadcaster").Infof),
 			eventBroadcaster.StartRecordingToSink(
-				&typedcorev1.EventSinkImpl{Interface: kubeclient.Get(ctx).CoreV1().Events("")}),
+				&v1.EventSinkImpl{Interface: client.Get(ctx).CoreV1().Events("")}),
 		}
-		recorder = eventBroadcaster.NewRecorder(
-			kubernetesscheme.Scheme, v1.EventSource{Component: defaultControllerAgentName})
+		recorder = eventBroadcaster.NewRecorder(scheme.Scheme, corev1.EventSource{Component: defaultControllerAgentName})
 		go func() {
 			<-ctx.Done()
 			for _, w := range watches {
@@ -65,7 +64,7 @@ func NewImpl(ctx context.Context, r Interface) *controller.Impl {
 	}
 
 	c := &reconcilerImpl{
-		Client:        client.Get(ctx),
+		Client:        injectionclient.Get(ctx),
 		Lister:        samplesourceInformer.Lister(),
 		Recorder:      recorder,
 		FinalizerName: defaultFinalizerName,
@@ -77,5 +76,5 @@ func NewImpl(ctx context.Context, r Interface) *controller.Impl {
 }
 
 func init() {
-	scheme.AddToScheme(kubernetesscheme.Scheme)
+	versionedscheme.AddToScheme(scheme.Scheme)
 }
