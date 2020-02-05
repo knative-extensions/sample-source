@@ -26,6 +26,7 @@ import (
 	"k8s.io/client-go/tools/record"
 	controller "knative.dev/pkg/controller"
 	logging "knative.dev/pkg/logging"
+	samplesScheme "knative.dev/sample-source/pkg/client/clientset/versioned/scheme"
 	client "knative.dev/sample-source/pkg/client/injection/client"
 	samplesource "knative.dev/sample-source/pkg/client/injection/informers/samples/v1alpha1/samplesource"
 )
@@ -51,4 +52,8 @@ func NewImpl(ctx context.Context, r Interface) *controller.Impl {
 	impl := controller.NewImpl(c, logger, "samplesources")
 
 	return impl
+}
+
+func init() {
+	samplesScheme.AddToScheme(scheme.Scheme)
 }
