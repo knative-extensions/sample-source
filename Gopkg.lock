@@ -332,14 +332,6 @@
   version = "v1.4.0"
 
 [[projects]]
-  branch = "master"
-  digest = "1:0e9bfc47ab9941ecc3344e580baca5deb4091177e84dd9773b48b38ec26b93d5"
-  name = "github.com/mattbaird/jsonpatch"
-  packages = ["."]
-  pruneopts = "NUT"
-  revision = "81af80346b1a01caae0cbc27fd3c1ba5b11e189f"
-
-[[projects]]
   digest = "1:5985ef4caf91ece5d54817c11ea25f182697534f8ae6521eadcd628c142ac4b6"
   name = "github.com/matttproud/golang_protobuf_extensions"
   packages = ["pbutil"]
@@ -684,6 +676,14 @@
   ]
   pruneopts = "NUT"
   revision = "f5828fc9a10359e54e99dbe0f1eb477417b1ff24"
+
+[[projects]]
+  digest = "1:8392b5c29adedc5f85c66b48bb53b6c49dd91d8540f3cad5d43ef7277946718f"
+  name = "gomodules.xyz/jsonpatch"
+  packages = ["v2"]
+  pruneopts = "NUT"
+  revision = "e8422f09d27ee2c8cfb2c7f8089eb9eeb0764849"
+  version = "v2.0.1"
 
 [[projects]]
   branch = "master"
@@ -1259,8 +1259,8 @@
   version = "v0.10.1"
 
 [[projects]]
-  branch = "master"
-  digest = "1:3e85a1ba2f762dd2ff12b7ec5ccc0a67600a75909504695d137ad1f21d6b6171"
+  branch = "release-0.13"
+  digest = "1:efd99f16d7b5337b1cce9ac8576e2f65c2c2f7b759f64cd235b82f42e0f86f09"
   name = "knative.dev/pkg"
   packages = [
     "apis",
@@ -1302,7 +1302,7 @@
     "webhook/certificates/resources",
   ]
   pruneopts = "T"
-  revision = "b63641488ab8d3a70e24a44e465495c7bfbf77b2"
+  revision = "d771641c9192ee2ce1e54c3d9af2cc7f692cb7ab"
 
 [[projects]]
   branch = "master"
