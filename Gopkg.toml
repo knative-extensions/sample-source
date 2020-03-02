@@ -29,6 +29,10 @@ required = [
   version = "kubernetes-1.16.4"
 
 [[override]]
+  name = "github.com/cloudevents/sdk-go"
+  version = "v1.1.1"
+
+[[override]]
   name = "k8s.io/code-generator"
   version = "kubernetes-1.16.4"
 
