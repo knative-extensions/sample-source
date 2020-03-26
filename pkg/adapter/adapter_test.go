@@ -28,8 +28,8 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"go.uber.org/zap"
-	"knative.dev/eventing/pkg/adapter"
-	"knative.dev/eventing/pkg/kncloudevents"
+	"knative.dev/eventing/pkg/adapter/v2"
+	adaptertest "knative.dev/eventing/pkg/adapter/v2/test"
 	"knative.dev/pkg/logging"
 )
 
@@ -37,14 +37,15 @@ func TestAdapter(t *testing.T) {
 	// Test sink to receive events.
 	sink := newSink(t)
 	defer sink.close()
-	c, err := kncloudevents.NewDefaultClient(sink.URL())
-	require.NoError(t, err)
-
 	// Keep the adapter logging quiet for tests.
 	ctx := logging.WithLogger(context.Background(), zap.NewNop().Sugar())
-	a := NewAdapter(ctx, &envConfig{Interval: time.Duration(time.Millisecond)}, c, nil)
+	a := NewAdapter(ctx, &envConfig{Interval: time.Duration(time.Millisecond)}, adaptertest.NewTestClient())
 	stop := make(chan struct{})
-	go a.Start(stop)
+	go func() {
+		if err := a.Start(stop); err != nil {
+			logging.FromContext(ctx).Errorw("failed to start adapter", zap.Error(err))
+		}
+	}()
 	defer func() { close(stop) }()
 	verify(t, sink.received)
 }
