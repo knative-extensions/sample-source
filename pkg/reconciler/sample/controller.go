@@ -18,11 +18,11 @@ package sample
 
 import (
 	"context"
+	"knative.dev/sample-source/pkg/apis/samples/v1alpha1"
 
 	"github.com/kelseyhightower/envconfig"
 	"k8s.io/client-go/tools/cache"
 
-	"knative.dev/eventing/pkg/apis/sources/v1alpha1"
 	"knative.dev/pkg/configmap"
 	"knative.dev/pkg/controller"
 	"knative.dev/pkg/logging"
