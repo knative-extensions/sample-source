@@ -24,7 +24,6 @@ import (
 
 	"knative.dev/eventing/pkg/adapter/v2"
 	"knative.dev/pkg/logging"
-	"knative.dev/pkg/source"
 )
 
 type envConfig struct {
@@ -42,7 +41,6 @@ type Adapter struct {
 	client   cloudevents.Client
 	interval time.Duration
 	logger   *zap.SugaredLogger
-	reporter source.StatsReporter
 
 	nextID int
 }
