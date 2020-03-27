@@ -18,6 +18,7 @@ package sample
 
 import (
 	"context"
+
 	"knative.dev/sample-source/pkg/apis/samples/v1alpha1"
 
 	"github.com/kelseyhightower/envconfig"
