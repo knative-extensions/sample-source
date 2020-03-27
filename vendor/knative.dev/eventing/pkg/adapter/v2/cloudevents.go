@@ -1,3 +1,18 @@
+/*
+Copyright 2020 The Knative Authors
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
 package adapter
 
 import (
@@ -11,8 +26,6 @@ import (
 	duckv1 "knative.dev/pkg/apis/duck/v1"
 	"knative.dev/pkg/source"
 )
-
-// TODO: this could move into the kncloudevents package in the future.
 
 // NewCloudEventsClient returns a client that will apply the ceOverrides to
 // outbound events and report outbound event counts.
@@ -50,18 +63,14 @@ var _ cloudevents.Client = (*client)(nil)
 func (c *client) Send(ctx context.Context, out event.Event) error {
 	c.applyOverrides(ctx, &out)
 	err := c.ceClient.Send(ctx, out)
-	err = c.reportCount(ctx, out, err)
-
-	return err
+	return c.reportCount(ctx, out, err)
 }
 
 // Request implements client.Request
 func (c *client) Request(ctx context.Context, out event.Event) (*event.Event, error) {
 	c.applyOverrides(ctx, &out)
 	resp, err := c.ceClient.Request(ctx, out)
-	err = c.reportCount(ctx, out, err)
-
-	return resp, err
+	return resp, c.reportCount(ctx, out, err)
 }
 
 // StartReceiver implements client.StartReceiver

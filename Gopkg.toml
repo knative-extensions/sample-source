@@ -18,9 +18,7 @@ required = [
 
 [[constraint]]
   name = "knative.dev/eventing"
-  source = "github.com/n3wscott/eventing"
-  revision = "9b972f47ba48101c3723c1cdf3a7c1f243c17627"
-  #branch = "master"
+  branch = "master"
 
 [[override]]
   name = "github.com/cloudevents/sdk-go"

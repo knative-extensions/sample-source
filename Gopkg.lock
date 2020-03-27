@@ -1256,7 +1256,8 @@
   revision = "6ca3b61696b65b0e81f1a39b4937fc2d2994ed6a"
 
 [[projects]]
-  digest = "1:dbf69b2f7e211bc2e761b498c2618db43ba084859eafff6db940f87d69d83b5f"
+  branch = "master"
+  digest = "1:77d4145cae219db1eb99296f7b19322792ba3d9f678410f563b6006ada3b0ec2"
   name = "knative.dev/eventing"
   packages = [
     "pkg/adapter/v2",
@@ -1325,8 +1326,7 @@
     "pkg/utils",
   ]
   pruneopts = "NUT"
-  revision = "9b972f47ba48101c3723c1cdf3a7c1f243c17627"
-  source = "github.com/n3wscott/eventing"
+  revision = "0ff5873a99c516be5e3b7b33414b8ac3fdae1d82"
 
 [[projects]]
   branch = "master"
@@ -1382,7 +1382,7 @@
     "tools/dep-collector",
   ]
   pruneopts = "UT"
-  revision = "9a6c4b1d41ce980537cebe2b34c4b8c92fbd2b47"
+  revision = "5c80391d7529640b44e193307289baac4b53b20b"
 
 [[projects]]
   digest = "1:8730e0150dfb2b7e173890c8b9868e7a273082ef8e39f4940e3506a481cf895c"
@@ -1435,7 +1435,6 @@
     "knative.dev/eventing/pkg/adapter/v2",
     "knative.dev/eventing/pkg/adapter/v2/test",
     "knative.dev/eventing/pkg/apis/duck",
-    "knative.dev/eventing/pkg/apis/sources/v1alpha1",
     "knative.dev/eventing/pkg/apis/sources/v1alpha2",
     "knative.dev/eventing/pkg/client/clientset/versioned",
     "knative.dev/eventing/pkg/client/injection/client",
