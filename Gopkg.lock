@@ -1257,11 +1257,10 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:77d4145cae219db1eb99296f7b19322792ba3d9f678410f563b6006ada3b0ec2"
+  digest = "1:537d423a35d7483a60168f76a7bd04be05bc5801c5208e46c0a4de77385bd45e"
   name = "knative.dev/eventing"
   packages = [
     "pkg/adapter/v2",
-    "pkg/adapter/v2/test",
     "pkg/apis/config",
     "pkg/apis/configs",
     "pkg/apis/configs/v1alpha1",
@@ -1433,7 +1432,6 @@
     "k8s.io/code-generator/cmd/informer-gen",
     "k8s.io/code-generator/cmd/lister-gen",
     "knative.dev/eventing/pkg/adapter/v2",
-    "knative.dev/eventing/pkg/adapter/v2/test",
     "knative.dev/eventing/pkg/apis/duck",
     "knative.dev/eventing/pkg/apis/sources/v1alpha2",
     "knative.dev/eventing/pkg/client/clientset/versioned",
@@ -1454,7 +1452,6 @@
     "knative.dev/pkg/kmeta",
     "knative.dev/pkg/logging",
     "knative.dev/pkg/reconciler",
-    "knative.dev/pkg/source",
     "knative.dev/pkg/tracker",
     "knative.dev/test-infra/scripts",
     "knative.dev/test-infra/tools/dep-collector",
