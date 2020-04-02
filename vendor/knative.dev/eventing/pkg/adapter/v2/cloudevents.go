@@ -18,10 +18,12 @@ package adapter
 import (
 	"context"
 	"errors"
-	"fmt"
+
+	"knative.dev/eventing/pkg/adapter/v2/metrics"
 
 	cloudevents "github.com/cloudevents/sdk-go/v2"
 	"github.com/cloudevents/sdk-go/v2/event"
+	"github.com/cloudevents/sdk-go/v2/protocol"
 	"github.com/cloudevents/sdk-go/v2/protocol/http"
 	duckv1 "knative.dev/pkg/apis/duck/v1"
 	"knative.dev/pkg/source"
@@ -47,30 +49,33 @@ func NewCloudEventsClient(target string, ceOverrides *duckv1.CloudEventOverrides
 	return &client{
 		ceClient:    ceClient,
 		ceOverrides: ceOverrides,
-		reporter:    reporter,
+		reporter:    metrics.NewStatsReporterAdapter(reporter),
 	}, nil
 }
 
 type client struct {
 	ceClient    cloudevents.Client
 	ceOverrides *duckv1.CloudEventOverrides
-	reporter    source.StatsReporter
+	reporter    metrics.StatsReporterAdapter
 }
 
 var _ cloudevents.Client = (*client)(nil)
 
 // Send implements client.Send
-func (c *client) Send(ctx context.Context, out event.Event) error {
+func (c *client) Send(ctx context.Context, out event.Event) protocol.Result {
 	c.applyOverrides(ctx, &out)
-	err := c.ceClient.Send(ctx, out)
-	return c.reportCount(ctx, out, err)
+	res := c.ceClient.Send(ctx, out)
+	return c.reporter.ReportCount(ctx, out, res)
+
 }
 
 // Request implements client.Request
-func (c *client) Request(ctx context.Context, out event.Event) (*event.Event, error) {
+func (c *client) Request(ctx context.Context, out event.Event) (*event.Event, protocol.Result) {
 	c.applyOverrides(ctx, &out)
-	resp, err := c.ceClient.Request(ctx, out)
-	return resp, c.reportCount(ctx, out, err)
+
+	resp, res := c.ceClient.Request(ctx, out)
+	return resp, c.reporter.ReportCount(ctx, out, res)
+
 }
 
 // StartReceiver implements client.StartReceiver
@@ -83,62 +88,5 @@ func (c *client) applyOverrides(ctx context.Context, event *cloudevents.Event) {
 		for n, v := range c.ceOverrides.Extensions {
 			event.SetExtension(n, v)
 		}
-	}
-}
-
-func (c *client) reportCount(ctx context.Context, event cloudevents.Event, err error) error {
-	tags := MetricTagFromContext(ctx)
-	reportArgs := &source.ReportArgs{
-		Namespace:     tags.Namespace,
-		EventSource:   event.Source(),
-		EventType:     event.Type(),
-		Name:          tags.Name,
-		ResourceGroup: tags.ResourceGroup,
-	}
-	if rErr := c.reporter.ReportEventCount(reportArgs, statusCode(err)); rErr != nil {
-		// metrics is not important enough to return an error if it is setup wrong.
-		// So combine reporter error with ce error if not nil.
-		if err != nil {
-			err = fmt.Errorf("%w\nmetrics reporter errror: %s", err, rErr)
-		}
-	}
-	return err
-}
-
-func statusCode(err error) int {
-	// TODO: there is talk to change this in the sdk, for now we do not have access to the real http code.
-	if err != nil {
-		return 400
-	}
-	return 200
-}
-
-// Metric context
-
-type MetricTag struct {
-	Name          string
-	Namespace     string
-	ResourceGroup string
-}
-
-type metricKey struct{}
-
-// ContextWithMetricTag returns a copy of parent context in which the
-// value associated with metric key is the supplied metric tag.
-func ContextWithMetricTag(ctx context.Context, metric *MetricTag) context.Context {
-	return context.WithValue(ctx, metricKey{}, metric)
-}
-
-// MetricTagFromContext returns the metric tag stored in context.
-// Returns nil if no metric tag is set in context, or if the stored value is
-// not of correct type.
-func MetricTagFromContext(ctx context.Context) *MetricTag {
-	if logger, ok := ctx.Value(metricKey{}).(*MetricTag); ok {
-		return logger
-	}
-	return &MetricTag{
-		Name:          "unknown",
-		Namespace:     "unknown",
-		ResourceGroup: "unknown",
 	}
 }
