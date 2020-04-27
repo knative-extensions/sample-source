@@ -19,18 +19,16 @@ limitations under the License.
 package tools
 
 import (
-	_ "knative.dev/test-infra/scripts"
-
-	// codegen: generate-groups.sh
-	// _ "k8s.io/code-generator"
-
-	// codegen: hack/generate-knative.sh
 	// _ "knative.dev/pkg/hack"
 	// TODO: use above when pkg go mod lands. For now, inline it.
 	// vvvv
-	_ "k8s.io/code-generator"
+	_ "k8s.io/code-generator/cmd/client-gen"
+	_ "k8s.io/code-generator/cmd/deepcopy-gen"
+	_ "k8s.io/code-generator/cmd/defaulter-gen"
+	_ "k8s.io/code-generator/cmd/informer-gen"
+	_ "k8s.io/code-generator/cmd/lister-gen"
+	_ "k8s.io/kube-openapi/cmd/openapi-gen"
+	_ "knative.dev/pkg/codegen/cmd/injection-gen"
 	_ "knative.dev/test-infra/scripts"
 	// ^^^^
-
-	_ "knative.dev/pkg/codegen/cmd/injection-gen"
 )
