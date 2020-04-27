@@ -23,7 +23,7 @@ require (
 	k8s.io/kube-openapi v0.0.0-20191107075043-30be4d16710a
 	k8s.io/utils v0.0.0-20191114200735-6ca3b61696b6 // indirect
 	knative.dev/eventing v0.14.1-0.20200427112650-40f0a540923e
-	knative.dev/pkg v0.0.0-20200425232149-7b6e21a57a31
+	knative.dev/pkg v0.0.0-20200427190051-6b9ee63b4aad
 	knative.dev/test-infra v0.0.0-20200424202250-e6e89d29e93a
 )
 
