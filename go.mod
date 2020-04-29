@@ -1,6 +1,6 @@
 module knative.dev/sample-source
 
-go 1.14
+go 1.13
 
 require (
 	contrib.go.opencensus.io/exporter/stackdriver v0.13.1 // indirect

@@ -9,13 +9,11 @@ contrib.go.opencensus.io/exporter/ocagent
 # contrib.go.opencensus.io/exporter/prometheus v0.1.0
 contrib.go.opencensus.io/exporter/prometheus
 # contrib.go.opencensus.io/exporter/stackdriver v0.13.1
-## explicit
 contrib.go.opencensus.io/exporter/stackdriver
 contrib.go.opencensus.io/exporter/stackdriver/monitoredresource
 contrib.go.opencensus.io/exporter/stackdriver/monitoredresource/aws
 contrib.go.opencensus.io/exporter/stackdriver/monitoredresource/gcp
 # contrib.go.opencensus.io/exporter/zipkin v0.1.1
-## explicit
 contrib.go.opencensus.io/exporter/zipkin
 # github.com/BurntSushi/toml v0.3.1
 github.com/BurntSushi/toml
@@ -59,7 +57,6 @@ github.com/aws/aws-sdk-go/service/sts/stsiface
 # github.com/beorn7/perks v0.0.0-20180321164747-3a771d992973
 github.com/beorn7/perks/quantile
 # github.com/blang/semver v3.5.1+incompatible
-## explicit
 github.com/blang/semver
 # github.com/census-instrumentation/opencensus-proto v0.2.1
 github.com/census-instrumentation/opencensus-proto/gen-go/agent/common/v1
@@ -69,7 +66,6 @@ github.com/census-instrumentation/opencensus-proto/gen-go/metrics/v1
 github.com/census-instrumentation/opencensus-proto/gen-go/resource/v1
 github.com/census-instrumentation/opencensus-proto/gen-go/trace/v1
 # github.com/cloudevents/sdk-go/v2 v2.0.0-RC1
-## explicit
 github.com/cloudevents/sdk-go/v2
 github.com/cloudevents/sdk-go/v2/binding
 github.com/cloudevents/sdk-go/v2/binding/format
@@ -153,7 +149,6 @@ github.com/jmespath/go-jmespath
 # github.com/json-iterator/go v1.1.7
 github.com/json-iterator/go
 # github.com/kelseyhightower/envconfig v1.4.0
-## explicit
 github.com/kelseyhightower/envconfig
 # github.com/lightstep/tracecontext.go v0.0.0-20181129014701-1757c391b1ac
 github.com/lightstep/tracecontext.go/traceparent
@@ -180,7 +175,6 @@ github.com/pkg/errors
 # github.com/pmezard/go-difflib v1.0.0
 github.com/pmezard/go-difflib/difflib
 # github.com/prometheus/client_golang v1.1.0 => github.com/prometheus/client_golang v0.9.2
-## explicit
 github.com/prometheus/client_golang/prometheus
 github.com/prometheus/client_golang/prometheus/internal
 github.com/prometheus/client_golang/prometheus/promhttp
@@ -195,12 +189,10 @@ github.com/prometheus/procfs
 github.com/prometheus/procfs/internal/fs
 github.com/prometheus/procfs/internal/util
 # github.com/robfig/cron v1.2.0
-## explicit
 github.com/robfig/cron
 # github.com/spf13/pflag v1.0.3
 github.com/spf13/pflag
 # github.com/stretchr/testify v1.5.1
-## explicit
 github.com/stretchr/testify/assert
 github.com/stretchr/testify/require
 # go.opencensus.io v0.22.1
@@ -225,15 +217,12 @@ go.opencensus.io/trace/internal
 go.opencensus.io/trace/propagation
 go.opencensus.io/trace/tracestate
 # go.uber.org/atomic v1.5.1
-## explicit
 go.uber.org/atomic
 # go.uber.org/multierr v1.4.0
-## explicit
 go.uber.org/multierr
 # go.uber.org/tools v0.0.0-20190618225709-2cfd321de3ee
 go.uber.org/tools/update-license
 # go.uber.org/zap v1.13.0
-## explicit
 go.uber.org/zap
 go.uber.org/zap/buffer
 go.uber.org/zap/internal/bufferpool
@@ -297,7 +286,6 @@ golang.org/x/tools/internal/span
 golang.org/x/xerrors
 golang.org/x/xerrors/internal
 # gomodules.xyz/jsonpatch/v2 v2.1.0
-## explicit
 gomodules.xyz/jsonpatch/v2
 # gonum.org/v1/gonum v0.0.0-20190331200053-3d26580ed485
 gonum.org/v1/gonum/blas
@@ -439,7 +427,6 @@ honnef.co/go/tools/stylecheck
 honnef.co/go/tools/unused
 honnef.co/go/tools/version
 # k8s.io/api v0.16.4 => k8s.io/api v0.16.4
-## explicit
 k8s.io/api/admission/v1beta1
 k8s.io/api/admissionregistration/v1
 k8s.io/api/admissionregistration/v1beta1
@@ -480,11 +467,9 @@ k8s.io/api/storage/v1
 k8s.io/api/storage/v1alpha1
 k8s.io/api/storage/v1beta1
 # k8s.io/apiextensions-apiserver v0.0.0-00010101000000-000000000000 => k8s.io/apiextensions-apiserver v0.16.4
-## explicit
 k8s.io/apiextensions-apiserver/pkg/apis/apiextensions
 k8s.io/apiextensions-apiserver/pkg/apis/apiextensions/v1beta1
 # k8s.io/apimachinery v0.16.5-beta.1 => k8s.io/apimachinery v0.16.4
-## explicit
 k8s.io/apimachinery/pkg/api/equality
 k8s.io/apimachinery/pkg/api/errors
 k8s.io/apimachinery/pkg/api/meta
@@ -532,7 +517,6 @@ k8s.io/apimachinery/pkg/watch
 k8s.io/apimachinery/third_party/forked/golang/json
 k8s.io/apimachinery/third_party/forked/golang/reflect
 # k8s.io/client-go v11.0.1-0.20190805182717-6502b5e7b1b5+incompatible => k8s.io/client-go v0.16.4
-## explicit
 k8s.io/client-go/discovery
 k8s.io/client-go/discovery/fake
 k8s.io/client-go/dynamic
@@ -694,7 +678,6 @@ k8s.io/client-go/util/keyutil
 k8s.io/client-go/util/retry
 k8s.io/client-go/util/workqueue
 # k8s.io/code-generator v0.18.0 => k8s.io/code-generator v0.16.4
-## explicit
 k8s.io/code-generator
 k8s.io/code-generator/cmd/client-gen
 k8s.io/code-generator/cmd/client-gen/args
@@ -742,7 +725,6 @@ k8s.io/gengo/types
 # k8s.io/klog v0.4.0
 k8s.io/klog
 # k8s.io/kube-openapi v0.0.0-20191107075043-30be4d16710a
-## explicit
 k8s.io/kube-openapi/cmd/openapi-gen
 k8s.io/kube-openapi/cmd/openapi-gen/args
 k8s.io/kube-openapi/pkg/common
@@ -751,13 +733,11 @@ k8s.io/kube-openapi/pkg/generators/rules
 k8s.io/kube-openapi/pkg/util/proto
 k8s.io/kube-openapi/pkg/util/sets
 # k8s.io/utils v0.0.0-20191114200735-6ca3b61696b6
-## explicit
 k8s.io/utils/buffer
 k8s.io/utils/integer
 k8s.io/utils/pointer
 k8s.io/utils/trace
 # knative.dev/eventing v0.14.1-0.20200427112650-40f0a540923e
-## explicit
 knative.dev/eventing/pkg/adapter/v2
 knative.dev/eventing/pkg/apis/config
 knative.dev/eventing/pkg/apis/configs
@@ -821,7 +801,6 @@ knative.dev/eventing/pkg/configmap
 knative.dev/eventing/pkg/logging
 knative.dev/eventing/pkg/tracing
 # knative.dev/pkg v0.0.0-20200428133551-22b961371934
-## explicit
 knative.dev/pkg/apis
 knative.dev/pkg/apis/duck
 knative.dev/pkg/apis/duck/v1
@@ -859,13 +838,6 @@ knative.dev/pkg/version
 knative.dev/pkg/webhook
 knative.dev/pkg/webhook/certificates/resources
 # knative.dev/test-infra v0.0.0-20200429211942-f4c4853375cf
-## explicit
 knative.dev/test-infra/scripts
 # sigs.k8s.io/yaml v1.1.0
 sigs.k8s.io/yaml
-# github.com/prometheus/client_golang => github.com/prometheus/client_golang v0.9.2
-# k8s.io/api => k8s.io/api v0.16.4
-# k8s.io/apiextensions-apiserver => k8s.io/apiextensions-apiserver v0.16.4
-# k8s.io/apimachinery => k8s.io/apimachinery v0.16.4
-# k8s.io/client-go => k8s.io/client-go v0.16.4
-# k8s.io/code-generator => k8s.io/code-generator v0.16.4
