@@ -1,6 +1,6 @@
 module knative.dev/sample-source
 
-go 1.13
+go 1.14
 
 require (
 	contrib.go.opencensus.io/exporter/stackdriver v0.13.1 // indirect
@@ -24,7 +24,7 @@ require (
 	k8s.io/utils v0.0.0-20191114200735-6ca3b61696b6 // indirect
 	knative.dev/eventing v0.14.1-0.20200427112650-40f0a540923e
 	knative.dev/pkg v0.0.0-20200428133551-22b961371934
-	knative.dev/test-infra v0.0.0-20200427211351-bf3e6802597a // indirect
+	knative.dev/test-infra v0.0.0-20200429211942-f4c4853375cf
 )
 
 replace (
