@@ -16,7 +16,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: sample-source-webhook
-  namespace: knative-sample
+  namespace: knative-samples
   labels:
     sample.knative.dev/release: devel
 spec:
@@ -60,7 +60,7 @@ metadata:
     eventing.knative.dev/release: devel
     role: sample-source-webhook
   name: sample-source-webhook
-  namespace: knative-sample
+  namespace: knative-samples
 spec:
   ports:
     - name: https-webhook

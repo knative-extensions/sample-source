@@ -22,7 +22,7 @@ webhooks:
       - v1beta1
     clientConfig:
       service:
-        name: webhook
+        name: sample-source-webhook
         namespace: knative-samples
     failurePolicy: Fail
     name: defaulting.webhook.knative-samples.knative.dev
@@ -38,7 +38,7 @@ webhooks:
       - v1beta1
     clientConfig:
       service:
-        name: webhook
+        name: sample-source-webhook
         namespace: knative-samples
     failurePolicy: Fail
     name: validation.webhook.knative-samples.knative.dev
@@ -54,7 +54,7 @@ webhooks:
       - v1beta1
     clientConfig:
       service:
-        name: webhook
+        name: sample-source-webhook
         namespace: knative-samples
     failurePolicy: Fail
     name: config.webhook.knative-samples.knative.dev

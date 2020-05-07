@@ -22,6 +22,7 @@ import (
 	"knative.dev/pkg/apis"
 )
 
+// Validate validates SampleSource.
 func (s *SampleSource) Validate(ctx context.Context) *apis.FieldError {
 	var errs *apis.FieldError
 
@@ -32,6 +33,7 @@ func (s *SampleSource) Validate(ctx context.Context) *apis.FieldError {
 	return errs
 }
 
+// Validate validates SampleSourceSpec.
 func (sspec *SampleSourceSpec) Validate(ctx context.Context) *apis.FieldError {
 	//Add code for validation webhook for SampleSourceSpec
 	var errs *apis.FieldError

@@ -20,11 +20,11 @@ import (
 	"context"
 )
 
+// SetDefaults mutates SmapleSource.
 func (s *SampleSource) SetDefaults(ctx context.Context) {
 	//Add code for Mutating admission webhook.
 
 	//example: If ServiceAccountName is unspecified, default to the "default" service account.
-	// ServiceAccountName is optional, so it is not necessary.
 	if s != nil && s.Spec.ServiceAccountName == "" {
 		s.Spec.ServiceAccountName = "default"
 	}

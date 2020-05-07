@@ -28,7 +28,7 @@ import (
 
 func TestSampleSourceValidation(t *testing.T) {
 	testCases := map[string]struct {
-		cr resourcesemantics.GenericCRD
+		cr   resourcesemantics.GenericCRD
 		want *apis.FieldError
 	}{
 		"missing sink": {

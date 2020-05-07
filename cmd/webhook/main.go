@@ -44,6 +44,7 @@ var types = map[schema.GroupVersionKind]resourcesemantics.GenericCRD{
 
 var callbacks = map[schema.GroupVersionKind]validation.Callback{}
 
+// NewDefaultingAdmissionController sets up mutating webhook.
 func NewDefaultingAdmissionController(ctx context.Context, cmw configmap.Watcher) *controller.Impl {
 	return defaulting.NewAdmissionController(ctx,
 
@@ -65,9 +66,10 @@ func NewDefaultingAdmissionController(ctx context.Context, cmw configmap.Watcher
 
 		// Whether to disallow unknown fields.
 		true,
-		)
+	)
 }
 
+// NewValidationAdmissionController sets up validation webhook.
 func NewValidationAdmissionController(ctx context.Context, cmw configmap.Watcher) *controller.Impl {
 	return validation.NewAdmissionController(ctx,
 
@@ -95,6 +97,7 @@ func NewValidationAdmissionController(ctx context.Context, cmw configmap.Watcher
 	)
 }
 
+// NewConfigValidationController sets up ConfigMap validation webhook.
 func NewConfigValidationController(ctx context.Context, cmw configmap.Watcher) *controller.Impl {
 	return configmaps.NewAdmissionController(ctx,
 
@@ -114,12 +117,12 @@ func NewConfigValidationController(ctx context.Context, cmw configmap.Watcher) *
 
 func main() {
 	ctx := webhook.WithOptions(signals.NewContext(), webhook.Options{
-		ServiceName: "webhook",
+		ServiceName: "sample-source-webhook",
 		Port:        8443,
 		SecretName:  "webhook-certs",
 	})
 
-	sharedmain.WebhookMainWithContext(ctx, "webhook",
+	sharedmain.WebhookMainWithContext(ctx, "sample-source-webhook",
 		certificates.NewController,
 		NewDefaultingAdmissionController,
 		NewValidationAdmissionController,

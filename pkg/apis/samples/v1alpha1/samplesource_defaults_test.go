@@ -24,8 +24,8 @@ import (
 )
 
 func TestSampleSourceDefaults(t *testing.T) {
-	testCases := map[string]struct{
-		initial SampleSource
+	testCases := map[string]struct {
+		initial  SampleSource
 		expected SampleSource
 	}{
 		"nil spec": {
