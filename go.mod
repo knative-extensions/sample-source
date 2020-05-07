@@ -5,6 +5,7 @@ go 1.13
 require (
 	contrib.go.opencensus.io/exporter/stackdriver v0.13.1 // indirect
 	github.com/cloudevents/sdk-go/v2 v2.0.0-RC1
+	github.com/google/go-cmp v0.4.0
 	github.com/kelseyhightower/envconfig v1.4.0
 	github.com/robfig/cron v1.2.0 // indirect
 	github.com/stretchr/testify v1.5.1

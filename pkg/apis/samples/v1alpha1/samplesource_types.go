@@ -24,6 +24,7 @@ import (
 	"knative.dev/pkg/apis/duck"
 	duckv1 "knative.dev/pkg/apis/duck/v1"
 	"knative.dev/pkg/kmeta"
+	"knative.dev/pkg/webhook/resourcesemantics"
 )
 
 // +genclient
@@ -50,6 +51,9 @@ func (s *SampleSource) GetGroupVersionKind() schema.GroupVersionKind {
 
 // Check that SampleSource is a runtime.Object.
 var _ runtime.Object = (*SampleSource)(nil)
+
+// Check that SampleSource can be validated and can be defaulted.
+var _ resourcesemantics.GenericCRD = (*SampleSource)(nil)
 
 // Check that we can create OwnerReferences to a SampleSource.
 var _ kmeta.OwnerRefable = (*SampleSource)(nil)
