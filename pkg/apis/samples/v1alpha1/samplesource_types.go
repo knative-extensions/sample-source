@@ -86,7 +86,8 @@ type SampleSourceSpec struct {
 	//
 	// The string format is a sequence of decimal numbers, each with optional
 	// fraction and a unit suffix, such as "300ms", "-1.5h" or "2h45m". Valid time
-	// units are "ns", "us" (or "µs"), "ms", "s", "m", "h".
+	// units are "ns", "us" (or "µs"), "ms", "s", "m", "h". If unspecified
+	// this will default to "10s".
 	Interval string `json:"interval"`
 }
 

@@ -33,6 +33,7 @@ func TestSampleSourceDefaults(t *testing.T) {
 			expected: SampleSource{
 				Spec: SampleSourceSpec{
 					ServiceAccountName: "default",
+					Interval:           "10s",
 				},
 			},
 		},

@@ -44,6 +44,8 @@ var types = map[schema.GroupVersionKind]resourcesemantics.GenericCRD{
 
 var callbacks = map[schema.GroupVersionKind]validation.Callback{}
 
+const admissionWebhookName = "sample-source-webhook"
+
 // NewDefaultingAdmissionController sets up mutating webhook.
 func NewDefaultingAdmissionController(ctx context.Context, cmw configmap.Watcher) *controller.Impl {
 	return defaulting.NewAdmissionController(ctx,
@@ -116,13 +118,14 @@ func NewConfigValidationController(ctx context.Context, cmw configmap.Watcher) *
 }
 
 func main() {
+	// Set up a signal context with our webhook options
 	ctx := webhook.WithOptions(signals.NewContext(), webhook.Options{
-		ServiceName: "sample-source-webhook",
+		ServiceName: admissionWebhookName,
 		Port:        8443,
 		SecretName:  "webhook-certs",
 	})
 
-	sharedmain.WebhookMainWithContext(ctx, "sample-source-webhook",
+	sharedmain.WebhookMainWithContext(ctx, admissionWebhookName,
 		certificates.NewController,
 		NewDefaultingAdmissionController,
 		NewValidationAdmissionController,
