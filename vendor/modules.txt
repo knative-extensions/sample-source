@@ -245,6 +245,7 @@ golang.org/x/net/context
 golang.org/x/net/context/ctxhttp
 golang.org/x/net/http/httpguts
 golang.org/x/net/http2
+golang.org/x/net/http2/h2c
 golang.org/x/net/http2/hpack
 golang.org/x/net/idna
 golang.org/x/net/internal/timeseries
@@ -767,7 +768,7 @@ knative.dev/eventing/pkg/client/listers/sources/v1alpha2
 knative.dev/eventing/pkg/configmap
 knative.dev/eventing/pkg/logging
 knative.dev/eventing/pkg/tracing
-# knative.dev/pkg v0.0.0-20200508172045-3a7a787c428e
+# knative.dev/pkg v0.0.0-20200509234445-b52862b1b3ea
 knative.dev/pkg/apis
 knative.dev/pkg/apis/duck
 knative.dev/pkg/apis/duck/v1
@@ -796,6 +797,7 @@ knative.dev/pkg/logging
 knative.dev/pkg/logging/logkey
 knative.dev/pkg/metrics
 knative.dev/pkg/metrics/metricskey
+knative.dev/pkg/network
 knative.dev/pkg/profiling
 knative.dev/pkg/ptr
 knative.dev/pkg/reconciler
