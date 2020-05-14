@@ -6,6 +6,7 @@ require (
 	github.com/cloudevents/sdk-go/v2 v2.0.0-RC4
 	github.com/google/go-cmp v0.4.0
 	github.com/kelseyhightower/envconfig v1.4.0
+	github.com/robfig/cron v1.2.0 // indirect
 	github.com/stretchr/testify v1.5.1
 	go.uber.org/zap v1.14.1
 	k8s.io/api v0.17.3
