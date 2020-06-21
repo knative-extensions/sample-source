@@ -44,7 +44,7 @@ type SampleSource struct {
 }
 
 // GetGroupVersionKind returns the GroupVersionKind.
-func (s *SampleSource) GetGroupVersionKind() schema.GroupVersionKind {
+func (*SampleSource) GetGroupVersionKind() schema.GroupVersionKind {
 	return SchemeGroupVersion.WithKind("SampleSource")
 }
 
