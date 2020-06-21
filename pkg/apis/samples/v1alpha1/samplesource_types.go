@@ -114,3 +114,8 @@ type SampleSourceList struct {
 
 	Items []SampleSource `json:"items"`
 }
+
+// GetStatus retrieves the status of the resource. Implements the KRShaped interface.
+func (ss *SampleSource) GetStatus() *duckv1.Status {
+	return &ss.Status.Status
+}
