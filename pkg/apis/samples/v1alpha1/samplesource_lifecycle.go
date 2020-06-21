@@ -20,6 +20,7 @@ import (
 	appsv1 "k8s.io/api/apps/v1"
 	"knative.dev/eventing/pkg/apis/duck"
 	"knative.dev/pkg/apis"
+	duckv1 "knative.dev/pkg/apis/duck/v1"
 )
 
 const (
@@ -46,6 +47,16 @@ func (s *SampleSourceStatus) GetCondition(t apis.ConditionType) *apis.Condition 
 // InitializeConditions sets relevant unset conditions to Unknown state.
 func (s *SampleSourceStatus) InitializeConditions() {
 	SampleCondSet.Manage(s).InitializeConditions()
+}
+
+// GetStatus returns duckv1.Status in SampleSourceStatus.
+func (ss *SampleSource) GetStatus() *duckv1.Status {
+	return &ss.Status.Status
+}
+
+// GetConditionSet returns SampleSource ConditionSet.
+func (*SampleSource) GetConditionSet() apis.ConditionSet {
+	return SampleCondSet
 }
 
 // MarkSink sets the condition that the source has a sink configured.

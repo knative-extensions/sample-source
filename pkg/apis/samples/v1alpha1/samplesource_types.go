@@ -28,7 +28,7 @@ import (
 )
 
 // +genclient
-// +genreconciler
+// +genreconciler:krshapedlogic=true
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
 // +k8s:openapi-gen=true
 type SampleSource struct {
@@ -49,17 +49,18 @@ func (s *SampleSource) GetGroupVersionKind() schema.GroupVersionKind {
 	return SchemeGroupVersion.WithKind("SampleSource")
 }
 
-// Check that SampleSource is a runtime.Object.
-var _ runtime.Object = (*SampleSource)(nil)
-
-// Check that SampleSource can be validated and can be defaulted.
-var _ resourcesemantics.GenericCRD = (*SampleSource)(nil)
-
-// Check that we can create OwnerReferences to a SampleSource.
-var _ kmeta.OwnerRefable = (*SampleSource)(nil)
-
-// Check that SampleSource implements the Conditions duck type.
-var _ = duck.VerifyType(&SampleSource{}, &duckv1.Conditions{})
+var (
+	// Check that SampleSource is a runtime.Object.
+	_ runtime.Object = (*SampleSource)(nil)
+	// Check that SampleSource can be validated and can be defaulted.
+	_ resourcesemantics.GenericCRD = (*SampleSource)(nil)
+	// Check that we can create OwnerReferences to a SampleSource.
+	_ kmeta.OwnerRefable = (*SampleSource)(nil)
+	// Check that SampleSource implements the Conditions duck type.
+	_ = duck.VerifyType(&SampleSource{}, &duckv1.Conditions{})
+	// Check that the type conforms to the duck Knative Resource shape.
+	_ duckv1.KRShaped = (*SampleSource)(nil)
+)
 
 // SampleSourceSpec holds the desired state of the SampleSource (from the client).
 type SampleSourceSpec struct {
