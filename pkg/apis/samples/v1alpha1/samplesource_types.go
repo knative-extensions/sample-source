@@ -49,12 +49,14 @@ func (s *SampleSource) GetGroupVersionKind() schema.GroupVersionKind {
 }
 
 var (
+	// Check that SampleSource can be validated and defaulted.
+	_ apis.Validatable   = (*SampleSource)(nil)
+	_ apis.Defaultable   = (*SampleSource)(nil)
+	_ kmeta.OwnerRefable = (*SampleSource)(nil)
 	// Check that SampleSource is a runtime.Object.
 	_ runtime.Object = (*SampleSource)(nil)
-	// Check that SampleSource can be validated and can be defaulted.
+	// Check that SampleSource satisfies resourcesemantics.GenericCRD.
 	_ resourcesemantics.GenericCRD = (*SampleSource)(nil)
-	// Check that we can create OwnerReferences to a SampleSource.
-	_ kmeta.OwnerRefable = (*SampleSource)(nil)
 	// Check that SampleSource implements the Conditions duck type.
 	_ = duck.VerifyType(&SampleSource{}, &duckv1.Conditions{})
 	// Check that the type conforms to the duck Knative Resource shape.
