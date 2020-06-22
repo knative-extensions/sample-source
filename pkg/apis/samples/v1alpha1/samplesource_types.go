@@ -50,8 +50,9 @@ func (*SampleSource) GetGroupVersionKind() schema.GroupVersionKind {
 
 var (
 	// Check that SampleSource can be validated and defaulted.
-	_ apis.Validatable   = (*SampleSource)(nil)
-	_ apis.Defaultable   = (*SampleSource)(nil)
+	_ apis.Validatable = (*SampleSource)(nil)
+	_ apis.Defaultable = (*SampleSource)(nil)
+	// Check that we can create OwnerReferences to a SampleSource.
 	_ kmeta.OwnerRefable = (*SampleSource)(nil)
 	// Check that SampleSource is a runtime.Object.
 	_ runtime.Object = (*SampleSource)(nil)
