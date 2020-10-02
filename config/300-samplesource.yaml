@@ -28,7 +28,8 @@ metadata:
 spec:
   group: samples.knative.dev
   versions:
-    - name: v1alpha1
+    - &version
+      name: v1alpha1
       served: true
       storage: true
       subresources:
@@ -63,4 +64,3 @@ spec:
     kind: SampleSource
     plural: samplesources
   scope: Namespaced
-  preserveUnknownFields: false
