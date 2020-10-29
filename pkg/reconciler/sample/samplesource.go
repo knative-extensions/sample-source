@@ -19,10 +19,8 @@ package sample
 import (
 	"context"
 
-	appsv1 "k8s.io/api/apps/v1"
 	"knative.dev/pkg/logging"
 	pkgreconciler "knative.dev/pkg/reconciler"
-	"knative.dev/pkg/tracker"
 
 	reconcilersource "knative.dev/eventing/pkg/reconciler/source"
 
@@ -36,8 +34,7 @@ import (
 type Reconciler struct {
 	ReceiveAdapterImage string `envconfig:"SAMPLE_SOURCE_RA_IMAGE" required:"true"`
 
-	dr  *reconciler.DeploymentReconciler
-	sbr *reconciler.SinkBindingReconciler
+	dr *reconciler.DeploymentReconciler
 
 	configAccessor reconcilersource.ConfigAccessor
 }
@@ -60,23 +57,6 @@ func (r *Reconciler) ReconcileKind(ctx context.Context, src *v1alpha1.SampleSour
 	if event != nil {
 		logging.FromContext(ctx).Infof("returning because event from ReconcileDeployment")
 		return event
-	}
-
-	if ra != nil {
-		logging.FromContext(ctx).Info("going to ReconcileSinkBinding")
-		sb, event := r.sbr.ReconcileSinkBinding(ctx, src, src.Spec.SourceSpec, tracker.Reference{
-			APIVersion: appsv1.SchemeGroupVersion.String(),
-			Kind:       "Deployment",
-			Namespace:  ra.Namespace,
-			Name:       ra.Name,
-		})
-		logging.FromContext(ctx).Infof("ReconcileSinkBinding returned %#v", sb)
-		if sb != nil {
-			src.Status.MarkSink(sb.Status.SinkURI)
-		}
-		if event != nil {
-			return event
-		}
 	}
 
 	return nil
