@@ -29,6 +29,7 @@ import (
 	"knative.dev/pkg/configmap"
 	"knative.dev/pkg/controller"
 	"knative.dev/pkg/logging"
+	"knative.dev/pkg/resolver"
 
 	"knative.dev/sample-source/pkg/reconciler"
 
@@ -57,6 +58,8 @@ func NewController(
 	}
 
 	impl := samplesource.NewImpl(ctx, r)
+
+	r.sinkResolver = resolver.NewURIResolver(ctx, impl.EnqueueKey)
 
 	logging.FromContext(ctx).Info("Setting up event handlers")
 
