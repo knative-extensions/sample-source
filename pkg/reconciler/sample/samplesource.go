@@ -19,9 +19,13 @@ package sample
 import (
 	"context"
 
+	// knative.dev/pkg imports
 	"knative.dev/pkg/logging"
 	pkgreconciler "knative.dev/pkg/reconciler"
+	"knative.dev/pkg/resolver"
 
+	// knative.dev/eventing imports
+	sourcesv1 "knative.dev/eventing/pkg/apis/sources/v1"
 	reconcilersource "knative.dev/eventing/pkg/reconciler/source"
 
 	"knative.dev/sample-source/pkg/apis/samples/v1alpha1"
@@ -36,6 +40,8 @@ type Reconciler struct {
 
 	dr *reconciler.DeploymentReconciler
 
+	sinkResolver *resolver.URIResolver
+
 	configAccessor reconcilersource.ConfigAccessor
 }
 
@@ -44,15 +50,27 @@ var _ reconcilersamplesource.Interface = (*Reconciler)(nil)
 
 // ReconcileKind implements Interface.ReconcileKind.
 func (r *Reconciler) ReconcileKind(ctx context.Context, src *v1alpha1.SampleSource) pkgreconciler.Event {
-	ra, event := r.dr.ReconcileDeployment(ctx, src, resources.MakeReceiveAdapter(&resources.ReceiveAdapterArgs{
-		EventSource:    src.Namespace + "/" + src.Name,
-		Image:          r.ReceiveAdapterImage,
-		Source:         src,
-		Labels:         resources.Labels(src.Name),
-		AdditionalEnvs: r.configAccessor.ToEnvVars(), // Grab config envs for tracing/logging/metrics
-	}))
+
+	ctx = sourcesv1.WithURIResolver(ctx, r.sinkResolver)
+
+	ra, sb, event := r.dr.ReconcileDeployment(ctx, src, makeSinkBinding(src),
+		resources.MakeReceiveAdapter(&resources.ReceiveAdapterArgs{
+			EventSource:    src.Namespace + "/" + src.Name,
+			Image:          r.ReceiveAdapterImage,
+			Source:         src,
+			Labels:         resources.Labels(src.Name),
+			AdditionalEnvs: r.configAccessor.ToEnvVars(), // Grab config envs for tracing/logging/metrics
+		}),
+	)
 	if ra != nil {
 		src.Status.PropagateDeploymentAvailability(ra)
+	}
+	if sb != nil {
+		if c := sb.Status.GetCondition(sourcesv1.SinkBindingConditionSinkProvided); c.IsTrue() {
+			src.Status.MarkSink(sb.Status.SinkURI)
+		} else if c.IsFalse() {
+			src.Status.MarkNoSink(c.GetReason(), "%s", c.GetMessage())
+		}
 	}
 	if event != nil {
 		logging.FromContext(ctx).Infof("returning because event from ReconcileDeployment")
@@ -60,4 +78,12 @@ func (r *Reconciler) ReconcileKind(ctx context.Context, src *v1alpha1.SampleSour
 	}
 
 	return nil
+}
+
+func makeSinkBinding(src *v1alpha1.SampleSource) *sourcesv1.SinkBinding {
+	return &sourcesv1.SinkBinding{
+		Spec: sourcesv1.SinkBindingSpec{
+			SourceSpec: src.Spec.SourceSpec,
+		},
+	}
 }
