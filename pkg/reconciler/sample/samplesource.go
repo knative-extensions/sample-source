@@ -19,6 +19,9 @@ package sample
 import (
 	"context"
 
+	// k8s.io imports
+	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
+
 	// knative.dev/pkg imports
 	"knative.dev/pkg/logging"
 	pkgreconciler "knative.dev/pkg/reconciler"
@@ -82,6 +85,11 @@ func (r *Reconciler) ReconcileKind(ctx context.Context, src *v1alpha1.SampleSour
 
 func makeSinkBinding(src *v1alpha1.SampleSource) *sourcesv1.SinkBinding {
 	return &sourcesv1.SinkBinding{
+		ObjectMeta: metav1.ObjectMeta{
+			// this is necessary to track the change of sink reference.
+			Name:      src.GetName(),
+			Namespace: src.GetNamespace(),
+		},
 		Spec: sourcesv1.SinkBindingSpec{
 			SourceSpec: src.Spec.SourceSpec,
 		},
