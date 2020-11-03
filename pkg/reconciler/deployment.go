@@ -106,40 +106,31 @@ func getContainer(name string, spec corev1.PodSpec) (int, *corev1.Container) {
 
 // Returns true if an update is needed.
 func podSpecSync(ctx context.Context, binder *sourcesv1.SinkBinding, expected corev1.PodSpec, now corev1.PodSpec) bool {
-	imageSynced := syncImage(expected, now)
-	sinkSynced := syncSink(ctx, binder, now)
-
-	return imageSynced || sinkSynced
-}
-
-// Returns true if an update is needed.
-func syncSink(ctx context.Context, binder *sourcesv1.SinkBinding, now corev1.PodSpec) bool {
-	// call Do() to project sink information.
 	old := now.DeepCopy()
-
-	ps := &duckv1.WithPod{}
-	ps.Spec.Template.Spec = now
-
-	binder.Do(ctx, ps)
+	syncImage(expected, now)
+	syncSink(ctx, binder, now)
 
 	return !equality.Semantic.DeepEqual(old, now)
 }
 
-// Returns true if an update is needed.
-func syncImage(expected corev1.PodSpec, now corev1.PodSpec) bool {
+func syncSink(ctx context.Context, binder *sourcesv1.SinkBinding, now corev1.PodSpec) {
+	// call Do() to project sink information.
+	ps := &duckv1.WithPod{}
+	ps.Spec.Template.Spec = now
+
+	binder.Do(ctx, ps)
+}
+
+func syncImage(expected corev1.PodSpec, now corev1.PodSpec) {
 	// got needs all of the containers that want as, but it is allowed to have more.
-	dirty := false
 	for _, ec := range expected.Containers {
 		n, nc := getContainer(ec.Name, now)
 		if nc == nil {
 			now.Containers = append(now.Containers, ec)
-			dirty = true
 			continue
 		}
 		if nc.Image != ec.Image {
 			now.Containers[n].Image = ec.Image
-			dirty = true
 		}
 	}
-	return dirty
 }
