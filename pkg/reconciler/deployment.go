@@ -54,10 +54,10 @@ func (r *DeploymentReconciler) ReconcileDeployment(
 	binder *sourcesv1.SinkBinding,
 	expected *appsv1.Deployment,
 ) (*appsv1.Deployment, *sourcesv1.SinkBinding, pkgreconciler.Event) {
-	syncSink(ctx, binder, expected.Spec.Template.Spec)
 	namespace := owner.GetObjectMeta().GetNamespace()
 	ra, err := r.KubeClientSet.AppsV1().Deployments(namespace).Get(ctx, expected.Name, metav1.GetOptions{})
 	if apierrors.IsNotFound(err) {
+		syncSink(ctx, binder, expected.Spec.Template.Spec)
 		ra, err = r.KubeClientSet.AppsV1().Deployments(namespace).Create(ctx, expected, metav1.CreateOptions{})
 		if err != nil {
 			return nil, binder, newDeploymentFailed(expected.Namespace, expected.Name, err)
