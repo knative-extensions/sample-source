@@ -106,7 +106,7 @@ func getContainer(name string, spec corev1.PodSpec) (int, *corev1.Container) {
 
 // Returns true if an update is needed.
 func podSpecSync(ctx context.Context, binder *sourcesv1.SinkBinding, expected corev1.PodSpec, now corev1.PodSpec) bool {
-	old := now.DeepCopy()
+	old := *now.DeepCopy()
 	syncImage(expected, now)
 	syncSink(ctx, binder, now)
 
