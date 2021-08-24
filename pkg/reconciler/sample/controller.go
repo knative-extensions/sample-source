@@ -59,14 +59,12 @@ func NewController(
 
 	impl := samplesource.NewImpl(ctx, r)
 
-	r.sinkResolver = resolver.NewURIResolver(ctx, impl.EnqueueKey)
-
-	logging.FromContext(ctx).Info("Setting up event handlers")
+	r.sinkResolver = resolver.NewURIResolverFromTracker(ctx, impl.Tracker)
 
 	sampleSourceInformer.Informer().AddEventHandler(controller.HandleAll(impl.Enqueue))
 
 	deploymentInformer.Informer().AddEventHandler(cache.FilteringResourceEventHandler{
-		FilterFunc: controller.FilterControllerGK(v1alpha1.Kind("SampleSource")),
+		FilterFunc: controller.FilterController(&v1alpha1.SampleSource{}),
 		Handler:    controller.HandleAll(impl.EnqueueControllerOf),
 	})
 
