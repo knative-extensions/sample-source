@@ -779,7 +779,7 @@ k8s.io/utils/buffer
 k8s.io/utils/integer
 k8s.io/utils/pointer
 k8s.io/utils/trace
-# knative.dev/eventing v0.23.0
+# knative.dev/eventing v0.23.4
 ## explicit
 knative.dev/eventing/pkg/adapter/v2
 knative.dev/eventing/pkg/adapter/v2/util/crstatusevent
@@ -790,10 +790,10 @@ knative.dev/eventing/pkg/apis/sources/config
 knative.dev/eventing/pkg/apis/sources/v1
 knative.dev/eventing/pkg/kncloudevents
 knative.dev/eventing/pkg/reconciler/source
-# knative.dev/hack v0.0.0-20210428122153-93ad9129c268
+# knative.dev/hack v0.0.0-20210602212444-509255f29a24
 ## explicit
 knative.dev/hack
-# knative.dev/pkg v0.0.0-20210510175900-4564797bf3b7
+# knative.dev/pkg v0.0.0-20210902175106-8d4b5e065ebb
 ## explicit
 knative.dev/pkg/apis
 knative.dev/pkg/apis/duck
@@ -846,6 +846,7 @@ knative.dev/pkg/webhook
 knative.dev/pkg/webhook/certificates
 knative.dev/pkg/webhook/certificates/resources
 knative.dev/pkg/webhook/configmaps
+knative.dev/pkg/webhook/json
 knative.dev/pkg/webhook/resourcesemantics
 knative.dev/pkg/webhook/resourcesemantics/defaulting
 knative.dev/pkg/webhook/resourcesemantics/validation
