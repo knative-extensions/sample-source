@@ -117,7 +117,7 @@ func (c *FakeSampleSources) UpdateStatus(ctx context.Context, sampleSource *v1al
 // Delete takes name of the sampleSource and deletes it. Returns an error if one occurs.
 func (c *FakeSampleSources) Delete(ctx context.Context, name string, opts v1.DeleteOptions) error {
 	_, err := c.Fake.
-		Invokes(testing.NewDeleteAction(samplesourcesResource, c.ns, name), &v1alpha1.SampleSource{})
+		Invokes(testing.NewDeleteActionWithOptions(samplesourcesResource, c.ns, name, opts), &v1alpha1.SampleSource{})
 
 	return err
 }
