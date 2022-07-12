@@ -759,7 +759,7 @@ k8s.io/utils/internal/third_party/forked/golang/net
 k8s.io/utils/net
 k8s.io/utils/pointer
 k8s.io/utils/trace
-# knative.dev/eventing v0.32.1-0.20220624065625-7763e0350762
+# knative.dev/eventing v0.32.1-0.20220712162113-0eb566ae2067
 ## explicit
 knative.dev/eventing/pkg/adapter/v2
 knative.dev/eventing/pkg/adapter/v2/util/crstatusevent
@@ -775,10 +775,10 @@ knative.dev/eventing/pkg/metrics/source
 knative.dev/eventing/pkg/observability
 knative.dev/eventing/pkg/observability/client
 knative.dev/eventing/pkg/reconciler/source
-# knative.dev/hack v0.0.0-20220610014127-dc6c287516dc
+# knative.dev/hack v0.0.0-20220701014203-65c463ac8c98
 ## explicit
 knative.dev/hack
-# knative.dev/pkg v0.0.0-20220628014530-177751338ddc
+# knative.dev/pkg v0.0.0-20220705130606-e60d250dc637
 ## explicit
 knative.dev/pkg/apis
 knative.dev/pkg/apis/duck
