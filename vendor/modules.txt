@@ -232,6 +232,12 @@ golang.org/x/sys/windows
 # golang.org/x/term v0.0.0-20210927222741-03fcf44c2211
 golang.org/x/term
 # golang.org/x/text v0.3.7
+golang.org/x/text/cases
+golang.org/x/text/internal
+golang.org/x/text/internal/language
+golang.org/x/text/internal/language/compact
+golang.org/x/text/internal/tag
+golang.org/x/text/language
 golang.org/x/text/secure/bidirule
 golang.org/x/text/transform
 golang.org/x/text/unicode/bidi
@@ -759,7 +765,7 @@ k8s.io/utils/internal/third_party/forked/golang/net
 k8s.io/utils/net
 k8s.io/utils/pointer
 k8s.io/utils/trace
-# knative.dev/eventing v0.33.0
+# knative.dev/eventing v0.33.1-0.20220728013737-e5405de6fa69
 ## explicit
 knative.dev/eventing/pkg/adapter/v2
 knative.dev/eventing/pkg/adapter/v2/util/crstatusevent
@@ -775,10 +781,10 @@ knative.dev/eventing/pkg/metrics/source
 knative.dev/eventing/pkg/observability
 knative.dev/eventing/pkg/observability/client
 knative.dev/eventing/pkg/reconciler/source
-# knative.dev/hack v0.0.0-20220701014203-65c463ac8c98
+# knative.dev/hack v0.0.0-20220728013938-9dabf7cf62e3
 ## explicit
 knative.dev/hack
-# knative.dev/pkg v0.0.0-20220705130606-e60d250dc637
+# knative.dev/pkg v0.0.0-20220728013737-449f7e6dab63
 ## explicit
 knative.dev/pkg/apis
 knative.dev/pkg/apis/duck
