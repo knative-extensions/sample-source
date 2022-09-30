@@ -21,10 +21,10 @@ github.com/census-instrumentation/opencensus-proto/gen-go/agent/trace/v1
 github.com/census-instrumentation/opencensus-proto/gen-go/metrics/v1
 github.com/census-instrumentation/opencensus-proto/gen-go/resource/v1
 github.com/census-instrumentation/opencensus-proto/gen-go/trace/v1
-# github.com/cloudevents/sdk-go/observability/opencensus/v2 v2.4.1
+# github.com/cloudevents/sdk-go/observability/opencensus/v2 v2.12.0
 github.com/cloudevents/sdk-go/observability/opencensus/v2/client
 github.com/cloudevents/sdk-go/observability/opencensus/v2/http
-# github.com/cloudevents/sdk-go/v2 v2.10.1
+# github.com/cloudevents/sdk-go/v2 v2.12.0
 ## explicit
 github.com/cloudevents/sdk-go/v2
 github.com/cloudevents/sdk-go/v2/binding
@@ -776,7 +776,7 @@ k8s.io/utils/net
 k8s.io/utils/pointer
 k8s.io/utils/strings/slices
 k8s.io/utils/trace
-# knative.dev/eventing v0.34.1-0.20220928014117-bd37622589a4
+# knative.dev/eventing v0.34.1-0.20220929193317-16771b5fa6ee
 ## explicit
 knative.dev/eventing/pkg/adapter/v2
 knative.dev/eventing/pkg/adapter/v2/util/crstatusevent
@@ -792,10 +792,10 @@ knative.dev/eventing/pkg/metrics/source
 knative.dev/eventing/pkg/observability
 knative.dev/eventing/pkg/observability/client
 knative.dev/eventing/pkg/reconciler/source
-# knative.dev/hack v0.0.0-20220928014218-68872175ea9c
+# knative.dev/hack v0.0.0-20220929150817-019890274b9c
 ## explicit
 knative.dev/hack
-# knative.dev/pkg v0.0.0-20220928014015-6d718681cd8c
+# knative.dev/pkg v0.0.0-20220929013917-2b8e4ad44f04
 ## explicit
 knative.dev/pkg/apis
 knative.dev/pkg/apis/duck
