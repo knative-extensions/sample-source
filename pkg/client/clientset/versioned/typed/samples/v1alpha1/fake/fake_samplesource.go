@@ -23,7 +23,6 @@ import (
 
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	labels "k8s.io/apimachinery/pkg/labels"
-	schema "k8s.io/apimachinery/pkg/runtime/schema"
 	types "k8s.io/apimachinery/pkg/types"
 	watch "k8s.io/apimachinery/pkg/watch"
 	testing "k8s.io/client-go/testing"
@@ -36,9 +35,9 @@ type FakeSampleSources struct {
 	ns   string
 }
 
-var samplesourcesResource = schema.GroupVersionResource{Group: "samples.knative.dev", Version: "v1alpha1", Resource: "samplesources"}
+var samplesourcesResource = v1alpha1.SchemeGroupVersion.WithResource("samplesources")
 
-var samplesourcesKind = schema.GroupVersionKind{Group: "samples.knative.dev", Version: "v1alpha1", Kind: "SampleSource"}
+var samplesourcesKind = v1alpha1.SchemeGroupVersion.WithKind("SampleSource")
 
 // Get takes name of the sampleSource, and returns the corresponding sampleSource object, and an error if there is any.
 func (c *FakeSampleSources) Get(ctx context.Context, name string, options v1.GetOptions) (result *v1alpha1.SampleSource, err error) {
