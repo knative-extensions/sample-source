@@ -26,6 +26,7 @@ import (
 	"github.com/stretchr/testify/require"
 	"go.uber.org/zap"
 	"knative.dev/eventing/pkg/adapter/v2"
+	fakekubeclient "knative.dev/pkg/client/injection/kube/client/fake"
 	"knative.dev/pkg/logging"
 )
 
@@ -69,7 +70,9 @@ func TestAdapterMain(t *testing.T) {
 	// environment var t.Name() is set to "main"
 	// (see https://talks.golang.org/2014/testing.slide#23)
 	if os.Getenv(t.Name()) == "main" {
-		adapter.Main("sample-source", NewEnv, NewAdapter)
+		ctx := context.TODO()
+		ctx, _ = fakekubeclient.With(ctx)
+		adapter.MainWithContext(ctx, "sample-source", NewEnv, NewAdapter)
 		return
 	}
 
