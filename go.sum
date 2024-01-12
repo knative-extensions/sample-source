@@ -66,8 +66,8 @@ github.com/cloudevents/sdk-go/sql/v2 v2.13.0 h1:gMJvQ3XFkygY9JmrusgK80d9yRAb8+J3
 github.com/cloudevents/sdk-go/v2 v2.13.0 h1:2zxDS8RyY1/wVPULGGbdgniGXSzLaRJVl136fLXGsYw=
 github.com/cloudevents/sdk-go/v2 v2.13.0/go.mod h1:xDmKfzNjM8gBvjaF8ijFjM1VYOVUEeUfapHMUX1T5To=
 github.com/cncf/udpa/go v0.0.0-20191209042840-269d4d468f6f/go.mod h1:M8M6+tZqaGXZJjfX53e64911xZQV5JYwmTeXPW+k8Sc=
-github.com/coreos/go-oidc/v3 v3.6.0 h1:AKVxfYw1Gmkn/w96z0DbT/B/xFnzTd3MkZvWLjF4n/o=
-github.com/coreos/go-oidc/v3 v3.6.0/go.mod h1:ZpHUsHBucTUj6WOkrP4E20UPynbLZzhTQ1XKCXkxyPc=
+github.com/coreos/go-oidc/v3 v3.9.0 h1:0J/ogVOd4y8P0f0xUh8l9t07xRP/d8tccvjHl2dcsSo=
+github.com/coreos/go-oidc/v3 v3.9.0/go.mod h1:rTKz2PYwftcrtoCzV5g5kvfJoWcm0Mk8AF8y1iAQro4=
 github.com/creack/pty v1.1.9/go.mod h1:oKZEueFk5CKHvIhNR5MUki03XCEU+Q6VDXinZuGJ33E=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
@@ -91,8 +91,8 @@ github.com/ghodss/yaml v1.0.0/go.mod h1:4dBDuWmgqj2HViK6kFavaiC9ZROes6MMH2rRYeME
 github.com/go-gl/glfw v0.0.0-20190409004039-e6da0acd62b1/go.mod h1:vR7hzQXu2zJy9AVAgeJqvqgH9Q5CA+iKCZ2gyEVpxRU=
 github.com/go-gl/glfw/v3.3/glfw v0.0.0-20191125211704-12ad95a8df72/go.mod h1:tQ2UAYgL5IevRw8kRxooKSPJfGvJ9fJQFa0TUsXzTg8=
 github.com/go-gl/glfw/v3.3/glfw v0.0.0-20200222043503-6f7a984d4dc4/go.mod h1:tQ2UAYgL5IevRw8kRxooKSPJfGvJ9fJQFa0TUsXzTg8=
-github.com/go-jose/go-jose/v3 v3.0.0 h1:s6rrhirfEP/CGIoc6p+PZAeogN2SxKav6Wp7+dyMWVo=
-github.com/go-jose/go-jose/v3 v3.0.0/go.mod h1:RNkWWRld676jZEYoV3+XK8L2ZnNSvIsxFMht0mSX+u8=
+github.com/go-jose/go-jose/v3 v3.0.1 h1:pWmKFVtt+Jl0vBZTIpz/eAKwsm6LkIxDVVbFHKkchhA=
+github.com/go-jose/go-jose/v3 v3.0.1/go.mod h1:RNkWWRld676jZEYoV3+XK8L2ZnNSvIsxFMht0mSX+u8=
 github.com/go-kit/log v0.2.0/go.mod h1:NwTd00d/i8cPZ3xOwwiv2PO5MOcx78fFErGNcVmBjv0=
 github.com/go-kit/log v0.2.1 h1:MRVx0/zhvdseW+Gza6N9rVzU/IVzaeE1SFI4raAhmBU=
 github.com/go-kit/log v0.2.1/go.mod h1:NwTd00d/i8cPZ3xOwwiv2PO5MOcx78fFErGNcVmBjv0=
@@ -663,10 +663,10 @@ k8s.io/kube-openapi v0.0.0-20230717233707-2695361300d9 h1:LyMgNKD2P8Wn1iAwQU5Ohx
 k8s.io/kube-openapi v0.0.0-20230717233707-2695361300d9/go.mod h1:wZK2AVp1uHCp4VamDVgBP2COHZjqD1T68Rf0CM3YjSM=
 k8s.io/utils v0.0.0-20230406110748-d93618cff8a2 h1:qY1Ad8PODbnymg2pRbkyMT/ylpTrCM8P2RJ0yroCyIk=
 k8s.io/utils v0.0.0-20230406110748-d93618cff8a2/go.mod h1:OLgZIPagt7ERELqWJFomSt595RzquPNLL48iOWgYOg0=
-knative.dev/eventing v0.39.1-0.20240111013811-bc89d2851777 h1:WpE/KiOhE/0HLWJlqM4PF1wkDC4QteVwBpYo1Ulp5Fw=
-knative.dev/eventing v0.39.1-0.20240111013811-bc89d2851777/go.mod h1:BGv4RmZ2Vj/QrEx1kLndXx1ism1tE8GiE67mgG9tt2g=
-knative.dev/hack v0.0.0-20240108153050-3ea694d6dad7 h1:mICurlRke2mlKP3LmyWYQYl6KZe80rYP5+ag9w2HQLA=
-knative.dev/hack v0.0.0-20240108153050-3ea694d6dad7/go.mod h1:yk2OjGDsbEnQjfxdm0/HJKS2WqTLEFg/N6nUs6Rqx3Q=
+knative.dev/eventing v0.39.1-0.20240111175334-3cbddd640f53 h1:/bNPG11sPU1gLTAA9Dl5ZFvVLicYOzVFQ4gG2SBaBWI=
+knative.dev/eventing v0.39.1-0.20240111175334-3cbddd640f53/go.mod h1:D9CdRKD3XPEN0bgBNA+NIb1J2HUPPhimIEnsenxfr88=
+knative.dev/hack v0.0.0-20240111013919-e89096d74d85 h1:ERgPObDcW9LfaEPAeFvbW3UJcF3C3ul6B2ErNMv13OE=
+knative.dev/hack v0.0.0-20240111013919-e89096d74d85/go.mod h1:yk2OjGDsbEnQjfxdm0/HJKS2WqTLEFg/N6nUs6Rqx3Q=
 knative.dev/pkg v0.0.0-20240111013350-bc230ae58d14 h1:F3+36IHb7qFLg0r43QBfF+PRcMXHnHOpS0gIERZGpXA=
 knative.dev/pkg v0.0.0-20240111013350-bc230ae58d14/go.mod h1:8/u65OwQ+l56FFE1j8BB/rMiy6B9dom4fTrvLFZ/Vqg=
 rsc.io/binaryregexp v0.2.0/go.mod h1:qTv7/COck+e2FymRvadv62gMdZztPaShugOCi3I+8D8=
