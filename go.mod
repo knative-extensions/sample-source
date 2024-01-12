@@ -12,8 +12,8 @@ require (
 	k8s.io/api v0.28.5
 	k8s.io/apimachinery v0.28.5
 	k8s.io/client-go v0.28.5
-	knative.dev/eventing v0.39.1-0.20240111013811-bc89d2851777
-	knative.dev/hack v0.0.0-20240108153050-3ea694d6dad7
+	knative.dev/eventing v0.39.1-0.20240111175334-3cbddd640f53
+	knative.dev/hack v0.0.0-20240111013919-e89096d74d85
 	knative.dev/pkg v0.0.0-20240111013350-bc230ae58d14
 )
 
@@ -26,12 +26,12 @@ require (
 	github.com/blendle/zapdriver v1.3.1 // indirect
 	github.com/census-instrumentation/opencensus-proto v0.4.1 // indirect
 	github.com/cloudevents/sdk-go/observability/opencensus/v2 v2.13.0 // indirect
-	github.com/coreos/go-oidc/v3 v3.6.0 // indirect
+	github.com/coreos/go-oidc/v3 v3.9.0 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/emicklei/go-restful/v3 v3.9.0 // indirect
 	github.com/evanphx/json-patch v4.12.0+incompatible // indirect
 	github.com/evanphx/json-patch/v5 v5.7.0 // indirect
-	github.com/go-jose/go-jose/v3 v3.0.0 // indirect
+	github.com/go-jose/go-jose/v3 v3.0.1 // indirect
 	github.com/go-kit/log v0.2.1 // indirect
 	github.com/go-logfmt/logfmt v0.5.1 // indirect
 	github.com/go-logr/logr v1.3.0 // indirect
