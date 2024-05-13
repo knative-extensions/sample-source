@@ -16,9 +16,13 @@ package main
 
 import (
 	"knative.dev/eventing/pkg/adapter/v2"
+	"knative.dev/pkg/signals"
 	myadapter "knative.dev/sample-source/pkg/adapter"
 )
 
 func main() {
-	adapter.Main("sample-source", myadapter.NewEnv, myadapter.NewAdapter)
+	ctx := signals.NewContext()
+	ctx = adapter.WithInjectorEnabled(ctx)
+
+	adapter.MainWithContext(ctx, "sample-source", myadapter.NewEnv, myadapter.NewAdapter)
 }
