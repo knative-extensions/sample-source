@@ -1,6 +1,6 @@
 module knative.dev/sample-source
 
-go 1.21
+go 1.22
 
 require (
 	github.com/cloudevents/sdk-go/v2 v2.15.2
@@ -12,9 +12,9 @@ require (
 	k8s.io/api v0.29.2
 	k8s.io/apimachinery v0.29.2
 	k8s.io/client-go v0.29.2
-	knative.dev/eventing v0.41.1-0.20240620085917-18dfe3c0ac90
+	knative.dev/eventing v0.41.1-0.20240620173702-f84a98c60901
 	knative.dev/hack v0.0.0-20240607132042-09143140a254
-	knative.dev/pkg v0.0.0-20240614135239-339c22b8218c
+	knative.dev/pkg v0.0.0-20240620215714-915c00977757
 )
 
 require (
@@ -82,7 +82,7 @@ require (
 	golang.org/x/tools v0.22.0 // indirect
 	gomodules.xyz/jsonpatch/v2 v2.4.0 // indirect
 	google.golang.org/api v0.183.0 // indirect
-	google.golang.org/genproto/googleapis/api v0.0.0-20240521202816-d264139d666e // indirect
+	google.golang.org/genproto/googleapis/api v0.0.0-20240604185151-ef581f913117 // indirect
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20240528184218-531527333157 // indirect
 	google.golang.org/grpc v1.64.0 // indirect
 	google.golang.org/protobuf v1.34.1 // indirect
