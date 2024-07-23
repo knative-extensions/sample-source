@@ -267,15 +267,15 @@ go.uber.org/zap/internal/exit
 go.uber.org/zap/internal/pool
 go.uber.org/zap/internal/stacktrace
 go.uber.org/zap/zapcore
-# golang.org/x/crypto v0.24.0
-## explicit; go 1.18
+# golang.org/x/crypto v0.25.0
+## explicit; go 1.20
 golang.org/x/crypto/pbkdf2
-# golang.org/x/mod v0.18.0
+# golang.org/x/mod v0.19.0
 ## explicit; go 1.18
 golang.org/x/mod/internal/lazyregexp
 golang.org/x/mod/module
 golang.org/x/mod/semver
-# golang.org/x/net v0.26.0
+# golang.org/x/net v0.27.0
 ## explicit; go 1.18
 golang.org/x/net/http/httpguts
 golang.org/x/net/http2
@@ -292,12 +292,12 @@ golang.org/x/oauth2/internal
 ## explicit; go 1.18
 golang.org/x/sync/errgroup
 golang.org/x/sync/semaphore
-# golang.org/x/sys v0.21.0
+# golang.org/x/sys v0.22.0
 ## explicit; go 1.18
 golang.org/x/sys/plan9
 golang.org/x/sys/unix
 golang.org/x/sys/windows
-# golang.org/x/term v0.21.0
+# golang.org/x/term v0.22.0
 ## explicit; go 1.18
 golang.org/x/term
 # golang.org/x/text v0.16.0
@@ -309,7 +309,7 @@ golang.org/x/text/unicode/norm
 # golang.org/x/time v0.5.0
 ## explicit; go 1.18
 golang.org/x/time/rate
-# golang.org/x/tools v0.22.0
+# golang.org/x/tools v0.23.0
 ## explicit; go 1.19
 golang.org/x/tools/go/ast/astutil
 golang.org/x/tools/imports
@@ -333,14 +333,15 @@ google.golang.org/genproto/googleapis/api/httpbody
 # google.golang.org/genproto/googleapis/rpc v0.0.0-20240528184218-531527333157
 ## explicit; go 1.20
 google.golang.org/genproto/googleapis/rpc/status
-# google.golang.org/grpc v1.64.0
-## explicit; go 1.19
+# google.golang.org/grpc v1.65.0
+## explicit; go 1.21
 google.golang.org/grpc
 google.golang.org/grpc/attributes
 google.golang.org/grpc/backoff
 google.golang.org/grpc/balancer
 google.golang.org/grpc/balancer/base
 google.golang.org/grpc/balancer/grpclb/state
+google.golang.org/grpc/balancer/pickfirst
 google.golang.org/grpc/balancer/roundrobin
 google.golang.org/grpc/binarylog/grpc_binarylog_v1
 google.golang.org/grpc/channelz
@@ -362,7 +363,6 @@ google.golang.org/grpc/internal/channelz
 google.golang.org/grpc/internal/credentials
 google.golang.org/grpc/internal/envconfig
 google.golang.org/grpc/internal/grpclog
-google.golang.org/grpc/internal/grpcrand
 google.golang.org/grpc/internal/grpcsync
 google.golang.org/grpc/internal/grpcutil
 google.golang.org/grpc/internal/idle
@@ -535,6 +535,7 @@ k8s.io/apimachinery/pkg/util/managedfields/internal
 k8s.io/apimachinery/pkg/util/mergepatch
 k8s.io/apimachinery/pkg/util/naming
 k8s.io/apimachinery/pkg/util/net
+k8s.io/apimachinery/pkg/util/rand
 k8s.io/apimachinery/pkg/util/runtime
 k8s.io/apimachinery/pkg/util/sets
 k8s.io/apimachinery/pkg/util/strategicpatch
@@ -547,6 +548,9 @@ k8s.io/apimachinery/pkg/version
 k8s.io/apimachinery/pkg/watch
 k8s.io/apimachinery/third_party/forked/golang/json
 k8s.io/apimachinery/third_party/forked/golang/reflect
+# k8s.io/apiserver v0.29.2
+## explicit; go 1.21
+k8s.io/apiserver/pkg/storage/names
 # k8s.io/client-go v0.29.2
 ## explicit; go 1.21
 k8s.io/client-go/applyconfigurations/admissionregistration/v1
@@ -938,7 +942,7 @@ k8s.io/utils/pointer
 k8s.io/utils/ptr
 k8s.io/utils/strings/slices
 k8s.io/utils/trace
-# knative.dev/eventing v0.41.1-0.20240627060150-a6ac8111e82f
+# knative.dev/eventing v0.41.1-0.20240723091907-c3baeda069fc
 ## explicit; go 1.22
 knative.dev/eventing/pkg/adapter/v2
 knative.dev/eventing/pkg/adapter/v2/util/crstatusevent
@@ -949,15 +953,64 @@ knative.dev/eventing/pkg/apis/duck/v1
 knative.dev/eventing/pkg/apis/eventing
 knative.dev/eventing/pkg/apis/eventing/v1
 knative.dev/eventing/pkg/apis/eventing/v1alpha1
+knative.dev/eventing/pkg/apis/eventing/v1beta1
+knative.dev/eventing/pkg/apis/eventing/v1beta2
+knative.dev/eventing/pkg/apis/eventing/v1beta3
 knative.dev/eventing/pkg/apis/feature
+knative.dev/eventing/pkg/apis/flows
+knative.dev/eventing/pkg/apis/flows/v1
 knative.dev/eventing/pkg/apis/messaging
 knative.dev/eventing/pkg/apis/messaging/config
 knative.dev/eventing/pkg/apis/messaging/v1
+knative.dev/eventing/pkg/apis/sinks
+knative.dev/eventing/pkg/apis/sinks/v1alpha1
 knative.dev/eventing/pkg/apis/sources
 knative.dev/eventing/pkg/apis/sources/config
 knative.dev/eventing/pkg/apis/sources/v1
+knative.dev/eventing/pkg/apis/sources/v1beta2
 knative.dev/eventing/pkg/auth
+knative.dev/eventing/pkg/client/clientset/versioned
+knative.dev/eventing/pkg/client/clientset/versioned/scheme
+knative.dev/eventing/pkg/client/clientset/versioned/typed/eventing/v1
+knative.dev/eventing/pkg/client/clientset/versioned/typed/eventing/v1alpha1
+knative.dev/eventing/pkg/client/clientset/versioned/typed/eventing/v1beta1
+knative.dev/eventing/pkg/client/clientset/versioned/typed/eventing/v1beta2
+knative.dev/eventing/pkg/client/clientset/versioned/typed/eventing/v1beta3
+knative.dev/eventing/pkg/client/clientset/versioned/typed/flows/v1
+knative.dev/eventing/pkg/client/clientset/versioned/typed/messaging/v1
+knative.dev/eventing/pkg/client/clientset/versioned/typed/sinks/v1alpha1
+knative.dev/eventing/pkg/client/clientset/versioned/typed/sources/v1
+knative.dev/eventing/pkg/client/clientset/versioned/typed/sources/v1beta2
+knative.dev/eventing/pkg/client/informers/externalversions
+knative.dev/eventing/pkg/client/informers/externalversions/eventing
+knative.dev/eventing/pkg/client/informers/externalversions/eventing/v1
+knative.dev/eventing/pkg/client/informers/externalversions/eventing/v1alpha1
+knative.dev/eventing/pkg/client/informers/externalversions/eventing/v1beta1
+knative.dev/eventing/pkg/client/informers/externalversions/eventing/v1beta2
+knative.dev/eventing/pkg/client/informers/externalversions/eventing/v1beta3
+knative.dev/eventing/pkg/client/informers/externalversions/flows
+knative.dev/eventing/pkg/client/informers/externalversions/flows/v1
+knative.dev/eventing/pkg/client/informers/externalversions/internalinterfaces
+knative.dev/eventing/pkg/client/informers/externalversions/messaging
+knative.dev/eventing/pkg/client/informers/externalversions/messaging/v1
+knative.dev/eventing/pkg/client/informers/externalversions/sinks
+knative.dev/eventing/pkg/client/informers/externalversions/sinks/v1alpha1
+knative.dev/eventing/pkg/client/informers/externalversions/sources
+knative.dev/eventing/pkg/client/informers/externalversions/sources/v1
+knative.dev/eventing/pkg/client/informers/externalversions/sources/v1beta2
+knative.dev/eventing/pkg/client/injection/client
+knative.dev/eventing/pkg/client/injection/informers/eventing/v1alpha1/eventpolicy
+knative.dev/eventing/pkg/client/injection/informers/factory
+knative.dev/eventing/pkg/client/listers/eventing/v1
 knative.dev/eventing/pkg/client/listers/eventing/v1alpha1
+knative.dev/eventing/pkg/client/listers/eventing/v1beta1
+knative.dev/eventing/pkg/client/listers/eventing/v1beta2
+knative.dev/eventing/pkg/client/listers/eventing/v1beta3
+knative.dev/eventing/pkg/client/listers/flows/v1
+knative.dev/eventing/pkg/client/listers/messaging/v1
+knative.dev/eventing/pkg/client/listers/sinks/v1alpha1
+knative.dev/eventing/pkg/client/listers/sources/v1
+knative.dev/eventing/pkg/client/listers/sources/v1beta2
 knative.dev/eventing/pkg/crossnamespace
 knative.dev/eventing/pkg/eventingtls
 knative.dev/eventing/pkg/metrics
@@ -965,10 +1018,10 @@ knative.dev/eventing/pkg/metrics/source
 knative.dev/eventing/pkg/observability
 knative.dev/eventing/pkg/observability/client
 knative.dev/eventing/pkg/reconciler/source
-# knative.dev/hack v0.0.0-20240607132042-09143140a254
+# knative.dev/hack v0.0.0-20240704013904-b9799599afcf
 ## explicit; go 1.18
 knative.dev/hack
-# knative.dev/pkg v0.0.0-20240626134149-3f6a546ac3a4
+# knative.dev/pkg v0.0.0-20240716082220-4355f0c73608
 ## explicit; go 1.22
 knative.dev/pkg/apis
 knative.dev/pkg/apis/duck
