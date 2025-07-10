@@ -16,13 +16,13 @@ linters:
       - legacy
       - std-error-handling
     paths:
-      - third_party$
+      - third_party/*
       - builtin$
       - examples$
 formatters:
   exclusions:
     generated: lax
     paths:
-      - third_party$
+      - third_party/*
       - builtin$
       - examples$
