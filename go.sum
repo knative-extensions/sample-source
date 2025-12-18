@@ -363,8 +363,8 @@ knative.dev/eventing v0.47.1-0.20251216143128-de3db52821ed h1:WRRrn0VC0MnS4f7ub3
 knative.dev/eventing v0.47.1-0.20251216143128-de3db52821ed/go.mod h1:g9yjoJnpE1tuQRb7ccqx31GLLKN5J6mSMlAVcVJZLQw=
 knative.dev/hack v0.0.0-20251126013634-1484a9e9b641 h1:N9Xqx3YLUNFN1WIc3UXTanK4je8VMQ36ZnAmECSsloc=
 knative.dev/hack v0.0.0-20251126013634-1484a9e9b641/go.mod h1:L5RzHgbvam0u8QFHfzCX6MKxu/a/gIGEdaRBqNiVbl0=
-knative.dev/pkg v0.0.0-20251216153728-9c8140b780d1 h1:pSZ4sRKm/Kq1ec+7Yhow6jUH0FKZjzrUHpPsy6Lu8pE=
-knative.dev/pkg v0.0.0-20251216153728-9c8140b780d1/go.mod h1:jU9OxeX3zL4W6aHpdMjMA/B7kgkm5JQv6PGMod2Qu/M=
+knative.dev/pkg v0.0.0-20251217214024-80c8bc434670 h1:MKgHnTvNprMn+Tr73CRB088PqR22q4KuVFIBTLFltwA=
+knative.dev/pkg v0.0.0-20251217214024-80c8bc434670/go.mod h1:jU9OxeX3zL4W6aHpdMjMA/B7kgkm5JQv6PGMod2Qu/M=
 sigs.k8s.io/gateway-api v1.1.0 h1:DsLDXCi6jR+Xz8/xd0Z1PYl2Pn0TyaFMOPPZIj4inDM=
 sigs.k8s.io/gateway-api v1.1.0/go.mod h1:ZH4lHrL2sDi0FHZ9jjneb8kKnGzFWyrTya35sWUTrRs=
 sigs.k8s.io/json v0.0.0-20241014173422-cfa47c3a1cc8 h1:gBQPwqORJ8d8/YNZWEjoZs7npUVDpVXUUOFfW6CgAqE=
