@@ -376,8 +376,8 @@ golang.org/x/net/trace
 ## explicit; go 1.24.0
 golang.org/x/oauth2
 golang.org/x/oauth2/internal
-# golang.org/x/sync v0.19.0
-## explicit; go 1.24.0
+# golang.org/x/sync v0.20.0
+## explicit; go 1.25.0
 golang.org/x/sync/errgroup
 # golang.org/x/sys v0.41.0
 ## explicit; go 1.24.0
@@ -1093,8 +1093,8 @@ k8s.io/utils/net
 k8s.io/utils/pointer
 k8s.io/utils/ptr
 k8s.io/utils/trace
-# knative.dev/eventing v0.48.1-0.20260306082258-9a2d0c67d580
-## explicit; go 1.24.0
+# knative.dev/eventing v0.48.1-0.20260310013839-eeacca0d3c00
+## explicit; go 1.25.0
 knative.dev/eventing/pkg/adapter/v2
 knative.dev/eventing/pkg/adapter/v2/util/crstatusevent
 knative.dev/eventing/pkg/apis
@@ -1124,10 +1124,10 @@ knative.dev/eventing/pkg/observability/configmap
 knative.dev/eventing/pkg/observability/otel
 knative.dev/eventing/pkg/reconciler/source
 knative.dev/eventing/pkg/utils
-# knative.dev/hack v0.0.0-20260212092700-0126b283bf20
+# knative.dev/hack v0.0.0-20260310014051-c448fdb867e2
 ## explicit; go 1.24
 knative.dev/hack
-# knative.dev/pkg v0.0.0-20260304131155-a902bbfa38de
+# knative.dev/pkg v0.0.0-20260310013839-5504026dd1b6
 ## explicit; go 1.25.0
 knative.dev/pkg/apis
 knative.dev/pkg/apis/duck
@@ -1173,6 +1173,7 @@ knative.dev/pkg/logging
 knative.dev/pkg/logging/logkey
 knative.dev/pkg/network
 knative.dev/pkg/network/handlers
+knative.dev/pkg/network/tls
 knative.dev/pkg/observability
 knative.dev/pkg/observability/attributekey
 knative.dev/pkg/observability/configmap
@@ -1191,7 +1192,6 @@ knative.dev/pkg/resolver
 knative.dev/pkg/signals
 knative.dev/pkg/system
 knative.dev/pkg/system/testing
-knative.dev/pkg/tls
 knative.dev/pkg/tracker
 knative.dev/pkg/version
 knative.dev/pkg/webhook
