@@ -1093,7 +1093,7 @@ k8s.io/utils/net
 k8s.io/utils/pointer
 k8s.io/utils/ptr
 k8s.io/utils/trace
-# knative.dev/eventing v0.48.1-0.20260310120613-104b6237f845
+# knative.dev/eventing v0.48.1-0.20260310212212-60fa543deb11
 ## explicit; go 1.25.0
 knative.dev/eventing/pkg/adapter/v2
 knative.dev/eventing/pkg/adapter/v2/util/crstatusevent
@@ -1192,6 +1192,7 @@ knative.dev/pkg/resolver
 knative.dev/pkg/signals
 knative.dev/pkg/system
 knative.dev/pkg/system/testing
+knative.dev/pkg/tls
 knative.dev/pkg/tracker
 knative.dev/pkg/version
 knative.dev/pkg/webhook
