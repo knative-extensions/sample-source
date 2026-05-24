@@ -61,7 +61,7 @@ mkdir -p ${GOPATH}/src/knative.dev
 cd ${GOPATH}/src/knative.dev
 git clone git@github.com:${YOUR_GITHUB_USERNAME}/sample-source.git
 cd sample-source
-git remote add upstream https://github.com/knative/sample-source.git
+git remote add upstream https://github.com/knative-extensions/sample-source.git
 git remote set-url --push upstream no_push
 ```
 

@@ -17,11 +17,12 @@ kind: Service
 metadata:
   labels:
     samples.knative.dev/release: devel
-    control-plane: sample-source-controller-manager
-  name: sample-source-controller-manager
+    app: sample-source-controller
+  name: sample-source-controller
   namespace: knative-samples
 spec:
   selector:
-    control-plane: sample-source-controller-manager
+    app: sample-source-controller
   ports:
-  - port: 443
+  - port: 9090
+    name: metrics

@@ -90,7 +90,7 @@ metadata:
     duck.knative.dev/source: "true"
 rules:
   - apiGroups:
-      - "sources.eventing.knative.dev"
+      - "samples.knative.dev"
     resources:
       - "samplesources"
     verbs:
