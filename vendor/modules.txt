@@ -219,7 +219,7 @@ github.com/rickb777/plural
 # github.com/robfig/cron/v3 v3.0.1
 ## explicit; go 1.12
 github.com/robfig/cron/v3
-# github.com/spf13/pflag v1.0.10
+# github.com/spf13/pflag v1.1.0
 ## explicit; go 1.12
 github.com/spf13/pflag
 # github.com/stretchr/testify v1.12.1
@@ -1129,7 +1129,7 @@ k8s.io/utils/net
 k8s.io/utils/pointer
 k8s.io/utils/ptr
 k8s.io/utils/trace
-# knative.dev/eventing v0.51.0
+# knative.dev/eventing v0.51.1-0.20261106033240-495a0f9afe89
 ## explicit; go 1.26.0
 knative.dev/eventing/pkg/adapter/v2
 knative.dev/eventing/pkg/adapter/v2/util/crstatusevent
@@ -1160,10 +1160,10 @@ knative.dev/eventing/pkg/observability/configmap
 knative.dev/eventing/pkg/observability/otel
 knative.dev/eventing/pkg/reconciler/source
 knative.dev/eventing/pkg/utils
-# knative.dev/hack v0.0.0-20261023132104-4a15c76c8f70
+# knative.dev/hack v0.0.0-20261106011541-9aee2b079953
 ## explicit; go 1.24
 knative.dev/hack
-# knative.dev/pkg v0.0.0-20261026113028-cfa0ac991c5a
+# knative.dev/pkg v0.0.0-20261110182720-ae1437a8b141
 ## explicit; go 1.26.0
 knative.dev/pkg/apis
 knative.dev/pkg/apis/duck
