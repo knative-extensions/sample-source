@@ -1129,7 +1129,7 @@ k8s.io/utils/net
 k8s.io/utils/pointer
 k8s.io/utils/ptr
 k8s.io/utils/trace
-# knative.dev/eventing v0.51.1-0.20261116023252-a2d266532d30
+# knative.dev/eventing v0.51.1-0.20261116221356-c1a0757074b1
 ## explicit; go 1.26.0
 knative.dev/eventing/pkg/adapter/v2
 knative.dev/eventing/pkg/adapter/v2/util/crstatusevent
@@ -1160,10 +1160,10 @@ knative.dev/eventing/pkg/observability/configmap
 knative.dev/eventing/pkg/observability/otel
 knative.dev/eventing/pkg/reconciler/source
 knative.dev/eventing/pkg/utils
-# knative.dev/hack v0.0.0-20261106011541-9aee2b079953
+# knative.dev/hack v0.0.0-20261118025754-120c8f556283
 ## explicit; go 1.24
 knative.dev/hack
-# knative.dev/pkg v0.0.0-20261115052151-37b44616bc66
+# knative.dev/pkg v0.0.0-20261118131257-b2f62414bc1e
 ## explicit; go 1.26.0
 knative.dev/pkg/apis
 knative.dev/pkg/apis/duck
