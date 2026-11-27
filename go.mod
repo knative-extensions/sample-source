@@ -12,9 +12,9 @@ require (
 	k8s.io/api v0.36.6
 	k8s.io/apimachinery v0.36.6
 	k8s.io/client-go v0.36.6
-	knative.dev/eventing v0.51.1-0.20261120140700-f819a05983e8
-	knative.dev/hack v0.0.0-20261120142159-5e9b644b541f
-	knative.dev/pkg v0.0.0-20261123011003-3a0c08ddeaa2
+	knative.dev/eventing v0.51.1-0.20261123023401-0ddaa13d1c6a
+	knative.dev/hack v0.0.0-20261126142104-562bef61fc20
+	knative.dev/pkg v0.0.0-20261127011207-e43991667198
 )
 
 require (
